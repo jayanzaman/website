@@ -6,10 +6,10 @@ import { FaArrowLeft } from 'react-icons/fa';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -39,7 +39,7 @@ export default function Contact() {
           <h1 className="text-4xl font-bold text-[#1A1A1A] mb-4">Get in Touch</h1>
           <p className="text-[#4A4A4A] mb-8">
             Have a question or want to discuss how we can help transform your business? 
-            Fill out the form below and we'll get back to you shortly.
+            Fill out the form below and we&apos;ll get back to you shortly.
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-6">

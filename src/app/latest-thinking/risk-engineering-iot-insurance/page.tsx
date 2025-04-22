@@ -67,7 +67,7 @@ export default function Article() {
             How IoT is Transforming Risk Engineering
           </h2>
           <p>
-            IoT—short for Internet of Things—refers to networks of smart sensors and devices that collect and transmit data in real-time. When integrated into risk engineering practices, IoT enhances decision-making with actionable insights and predictive capabilities.
+            IoT—short for Internet of Things—refers to networks of &quot;smart&quot; devices that collect and transmit data in real-time. When integrated into risk engineering practices, IoT enhances decision-making with actionable insights and predictive capabilities.
           </p>
 
           <h3 className="text-xl md:text-2xl font-bold text-[#1A1A1A] mb-4">

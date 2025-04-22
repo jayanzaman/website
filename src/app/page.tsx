@@ -78,7 +78,7 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                  Transforming Insurance Through Innovation
+                  Hi, I&apos;m Jayan Zaman
                 </h1>
                 <div className="text-lg text-gray-100 space-y-6">
                   <p>
