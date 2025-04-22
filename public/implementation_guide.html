@@ -1,9 +1,14 @@
-// src/app/layout.tsx
-import { Inter } from 'next/font/google';
-import './globals.css';
-
-const inter = Inter({ subsets: ['latin'] });
-
+// favicon.ico - Copy the 32x32 favicon to this file
+// This is a simple HTML file to help convert the favicon to .ico format
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Favicon Generator</title>
+</head>
+<body>
+  <h1>Next.js Favicon Implementation</h1>
+  <p>Place the following code in your Next.js app/layout.tsx file:</p>
+  <pre>
 export const metadata = {
   title: 'Jayan Zaman',
   description: 'Quantum Computing Specialist',
@@ -25,17 +30,6 @@ export const metadata = {
   },
   manifest: '/site.webmanifest',
 };
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en">
-      <body className={`${inter.className} min-h-screen flex flex-col`}>
-        {children}
-      </body>
-    </html>
-  );
-}
+  </pre>
+</body>
+</html>

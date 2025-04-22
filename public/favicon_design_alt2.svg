@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" />
+      <stop offset="50%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+    <linearGradient id="gradient2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8B5CF6" />
+      <stop offset="50%" stop-color="#EC4899" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="#0F172A" />
+  <path d="M256,96 C167.6,96 96,167.6 96,256 C96,344.4 167.6,416 256,416 C344.4,416 416,344.4 416,256 C416,167.6 344.4,96 256,96 Z M256,384 C185.3,384 128,326.7 128,256 C128,185.3 185.3,128 256,128 C326.7,128 384,185.3 384,256 C384,326.7 326.7,384 256,384 Z" fill="url(#gradient)" />
+  <circle cx="256" cy="256" r="64" fill="url(#gradient2)" />
+  <circle cx="256" cy="128" r="24" fill="#8B5CF6" />
+  <circle cx="256" cy="384" r="24" fill="#F59E0B" />
+  <circle cx="128" cy="256" r="24" fill="#3B82F6" />
+  <circle cx="384" cy="256" r="24" fill="#10B981" />
+</svg>
