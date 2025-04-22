@@ -82,13 +82,16 @@ export default function Home() {
                 </h1>
                 <div className="text-lg text-gray-100 space-y-6">
                   <p>
-                    We are standing at the edge of a transformative era—one where advanced artificial intelligence and emerging technologies are set to revolutionize how industries operate.
+                    We&apos;re not just adapting to change; we&apos;re driving it.
                   </p>
                   <p>
                     In the insurance sector, change may come slowly, but its impact will be profound. As the landscape reshapes, bold decisions made today will determine tomorrow's leaders, while hesitation may leave traditional players behind.
                   </p>
                   <p>
-                    My mission is to guide clients through this transition—challenging outdated practices, embracing innovation, and navigating resistance with clarity and conviction. Together, we'll shape a smarter, more agile future for insurance.
+                    My mission is to guide clients through this transition—challenging outdated practices, embracing innovation, and navigating resistance with clarity and conviction. Together, we&apos;ll shape a smarter, more agile future for insurance.
+                  </p>
+                  <p>
+                    Let&apos;s explore how emerging technologies can transform your operations.
                   </p>
                 </div>
                 <div className="mt-8">

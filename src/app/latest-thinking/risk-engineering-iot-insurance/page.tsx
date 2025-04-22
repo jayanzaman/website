@@ -96,7 +96,7 @@ export default function Article() {
           </ul>
 
           <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-6">
-            IoT Use Cases in "Escape of Water" Incidents
+            IoT Use Cases in &quot;Escape of Water&quot; Incidents
           </h2>
           <p>
             Water damage is among the most frequent and costly insurance claims. IoT can greatly reduce both the likelihood and severity of such events through:
