@@ -85,7 +85,7 @@ export default function Home() {
                     We&apos;re not just adapting to change; we&apos;re driving it.
                   </p>
                   <p>
-                    In the insurance sector, change may come slowly, but its impact will be profound. As the landscape reshapes, bold decisions made today will determine tomorrow's leaders, while hesitation may leave traditional players behind.
+                    In the insurance sector, change may come slowly, but its impact will be profound. As the landscape reshapes, bold decisions made today will determine tomorrow&#39;s leaders, while hesitation may leave traditional players behind.
                   </p>
                   <p>
                     My mission is to guide clients through this transition—challenging outdated practices, embracing innovation, and navigating resistance with clarity and conviction. Together, we&apos;ll shape a smarter, more agile future for insurance.
