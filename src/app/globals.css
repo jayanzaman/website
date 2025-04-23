@@ -1,14 +1,17 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
   --background: #ffffff;
-  --foreground: #171717;
-  --primary: #FF5F00;
-  --primary-dark: #E65600;
-  --secondary: #FF8534;
+  --foreground: #1A1A1A;
   --text-primary: #1A1A1A;
   --text-secondary: #4A4A4A;
   --border-color: #E5E5E5;
+  --primary: #FF5F00;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: ui-monospace, monospace;
   --color-background: var(--background);
@@ -19,6 +22,10 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --text-primary: #ededed;
+    --text-secondary: #a0a0a0;
+    --border-color: #333333;
+    --primary: #FF5F00;
   }
 }
 
@@ -28,6 +35,7 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   position: relative;
+  background: var(--background);
 }
 
 body::before {
@@ -60,6 +68,7 @@ body::before {
 }
 
 .synpulse-button {
+  @apply px-6 py-3 rounded-md border border-[var(--primary)] font-medium transition-colors duration-200;
   background-color: var(--text-primary);
   color: white;
   padding: 0.75rem 1.5rem;
@@ -87,4 +96,10 @@ body::before {
 .synpulse-button-outline:hover {
   background-color: var(--text-primary);
   color: white;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }

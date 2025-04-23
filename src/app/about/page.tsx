@@ -34,10 +34,10 @@ export default function About() {
             <div className="md:w-2/3">
               <h2 className="text-3xl font-bold mb-6 text-[#1A1A1A]">Jayan Zaman</h2>
               <p className="text-lg mb-6 text-[#4A4A4A]">
-                I&apos;m a strategy consultant with expertise in commercial insurance and AI implementation. My professional journey spans pricing tools development, Agile transformation, and AI operating models.
+                I'm a strategy consultant with expertise in commercial insurance and AI implementation. My professional journey spans pricing tools development, Agile transformation, and AI operating models.
               </p>
               <p className="text-lg mb-6 text-[#4A4A4A]">
-                Beyond my consulting work, I explore the fascinating intersections of quantum computing, metaphysics, and spirituality. I&apos;m passionate about understanding how emerging technologies can create more human-centered systems.
+                Beyond my consulting work, I explore the fascinating intersections of quantum computing, metaphysics, and spirituality. I'm passionate about understanding how emerging technologies can create more human-centered systems.
               </p>
               <p className="text-lg text-[#4A4A4A]">
                 My unique perspective combines analytical rigor with deep spiritual curiosity, allowing me to approach complex problems with both strategic insight and philosophical depth.
@@ -47,7 +47,7 @@ export default function About() {
           
           <h3 className="text-2xl font-bold mb-6 text-[#1A1A1A]">Professional Background</h3>
           <p className="text-[#4A4A4A] mb-12">
-            With over a decade of experience in the consulting industry, I&apos;ve helped organizations navigate digital transformation, develop innovative products, and implement AI solutions that drive business value while maintaining ethical considerations.
+            With over a decade of experience in the consulting industry, I've helped organizations navigate digital transformation, develop innovative products, and implement AI solutions that drive business value while maintaining ethical considerations.
           </p>
           
           <h3 className="text-2xl font-bold mb-6 text-[#1A1A1A]">Areas of Interest</h3>
