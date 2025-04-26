@@ -63,7 +63,7 @@ export default function Home() {
             <div className="md:w-1/2">
               <div className="relative w-full aspect-[4/3] md:h-[400px] max-w-md mx-auto rounded-lg overflow-hidden">
                 <Image
-                  src={imageErrors['hero'] ? '/images/default-article.jpg' : '/images/yusuf-onuk-yI6alVpYC6o-unsplash.jpg'}
+                  src={imageErrors['hero'] ? '/images/default-article1.jpg' : '/images/yusuf-onuk-yI6alVpYC6o-unsplash.jpg'}
                   alt="Quantum Computing Visualization"
                   fill
                   className="object-cover"
