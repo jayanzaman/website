@@ -28,6 +28,9 @@ export default function About() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                   priority
                   className="object-cover rounded-lg"
+                  onError={(e) => {
+                    console.error('Profile image failed to load:', e);
+                  }}
                 />
               </div>
             </div>

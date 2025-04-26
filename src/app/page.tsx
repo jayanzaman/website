@@ -68,7 +68,10 @@ export default function Home() {
                   fill
                   className="object-cover"
                   priority
-                  onError={() => setImageErrors(prev => ({...prev, hero: true}))}
+                  onError={(e) => {
+                    console.error('Hero image failed to load:', e);
+                    setImageErrors(prev => ({...prev, hero: true}));
+                  }}
                 />
                 {/* Add a subtle overlay to improve text readability if needed */}
                 <div className="absolute inset-0 bg-black bg-opacity-30"></div>
