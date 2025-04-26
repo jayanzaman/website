@@ -5,24 +5,24 @@ export default function QuantumBeyond() {
   // Define the quantum computing process steps
   const quantumSteps = [
     {
-      title: "Quantum Bits (Qubits)",
-      description: "Unlike classical bits that exist in a state of 0 or 1, qubits can exist in a superposition of both states simultaneously, enabling quantum computers to process vast amounts of information in parallel.",
-      icon: "🔄"
+      title: 'Quantum Bits (Qubits)',
+      description: 'Unlike classical bits that exist in a state of 0 or 1, qubits can exist in a superposition of both states simultaneously, enabling quantum computers to process vast amounts of information in parallel.',
+      icon: '🔄'
     },
     {
-      title: "Quantum Entanglement",
-      description: "When qubits become entangled, the state of one qubit instantly influences the state of another, regardless of the distance separating them. This property enables quantum computers to perform complex calculations more efficiently.",
-      icon: "🔗"
+      title: 'Quantum Entanglement',
+      description: 'When qubits become entangled, the state of one qubit instantly influences the state of another, regardless of the distance separating them. This property enables quantum computers to perform complex calculations more efficiently.',
+      icon: '🔗'
     },
     {
-      title: "Quantum Algorithms",
-      description: "Specialized algorithms like Shor's and Grover's leverage quantum properties to solve certain problems exponentially faster than classical computers, particularly in cryptography and search applications.",
-      icon: "⚙️"
+      title: 'Quantum Algorithms',
+      description: 'Specialized algorithms like Shor\'s and Grover\'s leverage quantum properties to solve certain problems exponentially faster than classical computers, particularly in cryptography and search applications.',
+      icon: '⚙️'
     },
     {
-      title: "Quantum Decoherence",
-      description: "The greatest challenge in quantum computing is maintaining qubit coherence. Environmental interactions cause qubits to lose their quantum properties, necessitating error correction techniques and extremely cold operating temperatures.",
-      icon: "❄️"
+      title: 'Quantum Decoherence',
+      description: 'The greatest challenge in quantum computing is maintaining qubit coherence. Environmental interactions cause qubits to lose their quantum properties, necessitating error correction techniques and extremely cold operating temperatures.',
+      icon: '❄️'
     }
   ];
 
@@ -81,7 +81,7 @@ export default function QuantumBeyond() {
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
           <h2 className="text-2xl font-bold mb-4">Future Explorations</h2>
           <p className="text-gray-700 dark:text-gray-300 mb-6">
-            This section will continue to evolve with new articles exploring the fascinating intersections of quantum theory, consciousness, and spiritual traditions. Let&apos;s explore these fascinating intersections and examine how emerging technologies might reshape our understanding of reality and what it means to be human.
+            This section will continue to evolve with new articles exploring the fascinating intersections of quantum theory, consciousness, and spiritual traditions. Let's explore these fascinating intersections and examine how emerging technologies might reshape our understanding of reality and what it means to be human.
           </p>
           <p className="text-gray-700 dark:text-gray-300 mb-8">
             Stay tuned for deep dives into quantum biology, the hard problem of consciousness, and how ancient wisdom traditions might offer insights into our most cutting-edge scientific discoveries. The term &quot;quantum supremacy&quot; refers to the potential milestone of a quantum computer solving a problem that is intractable for a classical computer.

@@ -23,24 +23,24 @@ export default function Home() {
   // Define the quantum computing process steps
   const quantumSteps = [
     {
-      title: "Quantum Bits (Qubits)",
-      description: "Unlike classical bits that exist in a state of 0 or 1, qubits can exist in a superposition of both states simultaneously.",
-      icon: "🔄"
+      title: 'Quantum Bits (Qubits)',
+      description: 'Unlike classical bits that exist in a state of 0 or 1, qubits can exist in a superposition of both states simultaneously.',
+      icon: '🔄'
     },
     {
-      title: "Quantum Entanglement",
-      description: "When qubits become entangled, the state of one qubit instantly influences the state of another, regardless of the distance separating them.",
-      icon: "🔗"
+      title: 'Quantum Entanglement',
+      description: 'When qubits become entangled, the state of one qubit instantly influences the state of another, regardless of the distance separating them.',
+      icon: '🔗'
     },
     {
-      title: "Quantum Algorithms",
-      description: "Specialized algorithms like Shor's and Grover's leverage quantum properties to solve certain problems exponentially faster than classical computers.",
-      icon: "⚙️"
+      title: 'Quantum Algorithms',
+      description: 'Specialized algorithms like Shor\'s and Grover\'s leverage quantum properties to solve certain problems exponentially faster than classical computers.',
+      icon: '⚙️'
     },
     {
-      title: "Quantum Decoherence",
-      description: "The greatest challenge in quantum computing is maintaining qubit coherence. Environmental interactions cause qubits to lose their quantum properties.",
-      icon: "❄️"
+      title: 'Quantum Decoherence',
+      description: 'The greatest challenge in quantum computing is maintaining qubit coherence. Environmental interactions cause qubits to lose their quantum properties.',
+      icon: '❄️'
     }
   ];
 

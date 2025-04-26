@@ -6,10 +6,10 @@ import { FaArrowLeft } from 'react-icons/fa';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: ""
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
   });
 
   const handleSubmit = (e: React.FormEvent) => {

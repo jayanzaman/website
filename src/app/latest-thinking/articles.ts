@@ -14,8 +14,8 @@ interface Articles {
 
 export const articles: Articles = {
   'risk-engineering-iot': {
-    title: "The Role of Risk Engineering and IoT in Modern Insurance Underwriting",
-    category: "Insurance",
+    title: 'The Role of Risk Engineering and IoT in Modern Insurance Underwriting',
+    category: 'Insurance',
     content: `
       Risk engineering is a critical function in insurance underwriting, focused on identifying, preventing, and mitigating potential losses associated with insuring properties or businesses. With the rise of advanced technologies such as the Internet of Things (IoT), insurers now have powerful new tools to enhance this process, enabling smarter underwriting, more accurate pricing, and better customer outcomes.
 
@@ -64,14 +64,14 @@ export const articles: Articles = {
 
       As technology continues to evolve, the role of risk engineering will become increasingly data-driven and predictive, leading to better outcomes for both insurers and their clients.
     `,
-    imageUrl: "/images/Risk-Engineering-and-IoT.png",
-    author: "Jayan Zaman",
-    date: "April 22, 2025",
-    readTime: "10 min read"
+    imageUrl: '/images/Risk-Engineering-and-IoT.png',
+    author: 'Jayan Zaman',
+    date: 'April 22, 2025',
+    readTime: '10 min read'
   },
   'quantum-computing-finance': {
-    title: "Quantum Computing in Financial Services",
-    category: "Technology",
+    title: 'Quantum Computing in Financial Services',
+    category: 'Technology',
     content: `
       Quantum computing represents a fundamental shift in how we solve problems, offering a leap beyond the capabilities of classical computers. In the financial services industry—where speed, accuracy, and complex modeling are paramount—quantum computing has the potential to redefine the landscape. From advanced risk modeling to breakthrough fraud detection, its promise is vast, though the path forward includes significant hurdles.
 
@@ -113,10 +113,10 @@ export const articles: Articles = {
 
       As with any frontier technology, the winners in this new era will be those who balance vision with pragmatic innovation, staying ahead of the curve while navigating the evolving technical and regulatory landscape.
     `,
-    imageUrl: "/images/manuel-CANL3bzp6wU-unsplash.jpg",
-    author: "Jayan Zaman",
-    date: "April 21, 2025",
-    readTime: "8 min read"
+    imageUrl: '/images/manuel-CANL3bzp6wU-unsplash.jpg',
+    author: 'Jayan Zaman',
+    date: 'April 21, 2025',
+    readTime: '8 min read'
   },
   'beyond-underwriting-proactive-risk-control': {
     title: 'Beyond Underwriting: How Proactive Risk Control Fuels Insurance Profitability',
@@ -148,7 +148,7 @@ export const articles: Articles = {
     category: 'Insurance',
     date: 'April 20, 2025',
     author: 'Jayan Zaman',
-    imageUrl: "/images/risk-engineering-iot.png",
+    imageUrl: '/images/risk-engineering-iot.png',
     readTime: '7 min read'
   }
 };
