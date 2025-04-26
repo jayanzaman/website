@@ -19,12 +19,13 @@ export default function About() {
         
         <div className="bg-white rounded-lg shadow-md border border-[#E5E5E5] p-8 mb-12">
           <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
-            <div className="md:w-1/3">
-              <div className="relative w-full h-[400px]">
+            <div className="w-full md:w-1/3">
+              <div className="relative aspect-square w-full max-w-sm mx-auto rounded-lg overflow-hidden bg-gray-100">
                 <Image 
                   src="/images/jayan_profile.png" 
                   alt="Jayan Zaman" 
                   fill
+                  quality={100}
                   sizes="(max-width: 768px) 100vw, 33vw"
                   priority
                   className="object-cover rounded-lg"
