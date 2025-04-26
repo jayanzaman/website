@@ -57,10 +57,17 @@ export default function Home() {
               </Link>
             </div>
             <div className="md:w-1/2">
-              <div className="relative w-full aspect-[4/3] max-w-md mx-auto rounded-lg overflow-hidden bg-gradient-to-br from-[#FF5F00] via-[#FF7F00] to-[#FF9F00] animate-gradient-x">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-white text-6xl">🚀</div>
-                </div>
+              <div className="relative w-full aspect-[4/3] max-w-md mx-auto rounded-lg overflow-hidden bg-gray-900">
+                <Image
+                  src="/images/yusuf-onuk-yI6alVpYC6o-unsplash.jpg"
+                  alt="Quantum Computing Visualization"
+                  width={800}
+                  height={600}
+                  className="w-full h-full object-cover"
+                  priority
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
               </div>
             </div>
           </div>
