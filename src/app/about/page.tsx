@@ -54,19 +54,19 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white border border-[#E5E5E5] p-6 rounded-lg hover:shadow-md transition-shadow">
               <h4 className="font-bold mb-3 text-[#1A1A1A]">Commercial Insurance</h4>
-              <p className="text-[#4A4A4A]">Pricing strategies, product development, and digital transformation in the insurance sector.</p>
+              <p className="text-[#4A4A4A]">Building agile teams, digital transformation, and enterprise architecture and strategies.</p>
             </div>
             <div className="bg-white border border-[#E5E5E5] p-6 rounded-lg hover:shadow-md transition-shadow">
               <h4 className="font-bold mb-3 text-[#1A1A1A]">AI Implementation</h4>
-              <p className="text-[#4A4A4A]">Ethical AI deployment, machine learning operations, and AI governance frameworks.</p>
+              <p className="text-[#4A4A4A]">Reimagining insurance operations through Generative AI and transformative technologies.</p>
             </div>
             <div className="bg-white border border-[#E5E5E5] p-6 rounded-lg hover:shadow-md transition-shadow">
               <h4 className="font-bold mb-3 text-[#1A1A1A]">Quantum Computing</h4>
               <p className="text-[#4A4A4A]">Quantum algorithms, quantum-inspired optimization, and philosophical implications.</p>
             </div>
             <div className="bg-white border border-[#E5E5E5] p-6 rounded-lg hover:shadow-md transition-shadow">
-              <h4 className="font-bold mb-3 text-[#1A1A1A]">Metaphysics & Spirituality</h4>
-              <p className="text-[#4A4A4A]">Consciousness studies, Eastern philosophical traditions, and their intersection with modern science.</p>
+              <h4 className="font-bold mb-3 text-[#1A1A1A]">Science and Spirituality</h4>
+              <p className="text-[#4A4A4A]">Eastern and Western philosophical traditions, and their intersection with modern science.</p>
             </div>
           </div>
         </div>

@@ -47,16 +47,12 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#1A1A1A] to-[#2A2A2A] text-white py-20">
+      <section className="bg-black text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="md:w-1/2">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Quantum Computing Specialist
-              </h1>
-              <p className="text-lg md:text-xl text-gray-300 mb-8">
-                Bridging the gap between quantum theory and practical applications in finance and technology.
-              </p>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">Technology & Strategy Consultant</h1>
+              <p className="text-xl mb-8">Where enterprise architecture meets emerging technologies: GenAI, quantum computing, and philosophical insights.</p>
               <Link 
                 href="/about"
                 className="inline-flex items-center px-6 py-3 bg-[#FF5F00] text-white rounded-lg hover:bg-[#FF7F00] transition-colors"
