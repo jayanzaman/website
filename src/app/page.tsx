@@ -113,6 +113,37 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Interactive Experiences Section */}
+      <section className="py-20 bg-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-white mb-4">Interactive Experiences</h2>
+            <p className="text-xl text-gray-300">Explore complex concepts through hands-on simulations</p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg p-8 text-center">
+              <div className="mb-6">
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center text-2xl">
+                  🌌
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">The Universe Builder</h3>
+                <p className="text-gray-300 mb-6">
+                  Play God with the cosmos and discover the razor's edge on which our existence is balanced. 
+                  Adjust fundamental constants and witness the consequences in real-time.
+                </p>
+              </div>
+              <Link 
+                href="/universe-builder"
+                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-lg hover:from-orange-700 hover:to-red-700 transition-all transform hover:scale-105"
+              >
+                Launch Universe Builder <FaArrowRight className="ml-2" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
