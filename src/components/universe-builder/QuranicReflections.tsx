@@ -118,58 +118,58 @@ export function QuranicReflectionModal({ reflection, isOpen, onClose }: QuranicR
 // Quranic reflections data
 export const quranicReflections = {
   beginning: {
-    arabic: "وَإِنَّا لَمُوسِعُونَ",
-    translation: "And it is We who are steadily expanding it",
-    transliteration: "Wa inna la-musi'un",
-    reference: "51:47",
+    arabic: 'وَإِنَّا لَمُوسِعُونَ',
+    translation: 'And it is We who are steadily expanding it',
+    transliteration: 'Wa inna la-musi\'un',
+    reference: '51:47',
     context: "This verse speaks to the expanding universe, a reality discovered by modern cosmology. The precise conditions you've created mirror the divine wisdom in setting the initial parameters of our cosmos.",
     trigger: 'perfect' as const
   },
   matter: {
-    arabic: "وَجَعَلْنَا مِنَ الْمَاءِ كُلَّ شَيْءٍ حَيٍّ",
-    translation: "And We made from water every living thing",
-    transliteration: "Wa ja'alna min al-ma'i kulla shay'in hayy",
-    reference: "21:30",
+    arabic: 'وَجَعَلْنَا مِنَ الْمَاءِ كُلَّ شَيْءٍ حَيٍّ',
+    translation: 'And We made from water every living thing',
+    transliteration: 'Wa ja\'alna min al-ma\'i kulla shay\'in hayy',
+    reference: '21:30',
     context: "The formation of stable matter you've achieved reflects the divine precision in creating the building blocks of life. Every atom is a testament to perfect design.",
     trigger: 'perfect' as const
   },
   starlight: {
-    arabic: "وَجَعَلْنَا السِّرَاجَ وَهَّاجًا",
-    translation: "And We made [therein] a burning lamp",
-    transliteration: "Wa ja'alna as-siraja wahhajan",
-    reference: "78:13",
+    arabic: 'وَجَعَلْنَا السِّرَاجَ وَهَّاجًا',
+    translation: 'And We made [therein] a burning lamp',
+    transliteration: 'Wa ja\'alna as-siraja wahhajan',
+    reference: '78:13',
     context: "The stars you've ignited echo the divine creation of celestial furnaces that forge the elements of life. Each star is a lamp illuminating the cosmic darkness.",
     trigger: 'perfect' as const
   },
   planets: {
-    arabic: "وَالْأَرْضَ مَدَدْنَاهَا وَأَلْقَيْنَا فِيهَا رَوَاسِيَ وَأَنبَتْنَا فِيهَا مِن كُلِّ شَيْءٍ مَّوْزُونٍ",
-    translation: "And the earth - We have spread it and cast therein firmly set mountains and made to grow therein all kinds of things in good proportion",
-    transliteration: "Wal-arda madadnaha wa alqayna fiha rawasiya wa anbatnaa fiha min kulli shay'in mawzun",
-    reference: "15:19",
+    arabic: 'وَالْأَرْضَ مَدَدْنَاهَا وَأَلْقَيْنَا فِيهَا رَوَاسِيَ وَأَنبَتْنَا فِيهَا مِن كُلِّ شَيْءٍ مَّوْزُونٍ',
+    translation: 'And the earth - We have spread it and cast therein firmly set mountains and made to grow therein all kinds of things in good proportion',
+    transliteration: 'Wal-arda madadnaha wa alqayna fiha rawasiya wa anbatnaa fiha min kulli shay\'in mawzun',
+    reference: '15:19',
     context: "The habitable world you've crafted reflects Allah's wisdom in creating Earth in perfect balance - not too hot, not too cold, but precisely calibrated for life to flourish.",
     trigger: 'perfect' as const
   },
   life: {
-    arabic: "وَاللَّهُ خَلَقَ كُلَّ دَابَّةٍ مِن مَّاءٍ",
-    translation: "And Allah has created every living creature from water",
-    transliteration: "Wallahu khalaqa kulla dabbatin min ma'",
-    reference: "24:45",
+    arabic: 'وَاللَّهُ خَلَقَ كُلَّ دَابَّةٍ مِن مَّاءٍ',
+    translation: 'And Allah has created every living creature from water',
+    transliteration: 'Wallahu khalaqa kulla dabbatin min ma\'',
+    reference: '24:45',
     context: "The emergence of life you've witnessed mirrors the divine miracle of bringing forth consciousness from simple elements. Every living cell bears witness to the Creator's artistry.",
     trigger: 'perfect' as const
   },
   complexity: {
-    arabic: "سَنُرِيهِمْ آيَاتِنَا فِي الْآفَاقِ وَفِي أَنفُسِهِمْ حَتَّىٰ يَتَبَيَّنَ لَهُمْ أَنَّهُ الْحَقُّ",
-    translation: "We will show them Our signs in the horizons and within themselves until it becomes clear to them that it is the truth",
-    transliteration: "Sanurihim ayatina fi'l-afaqi wa fi anfusihim hatta yatabayyana lahum annahu'l-haqq",
-    reference: "41:53",
+    arabic: 'سَنُرِيهِمْ آيَاتِنَا فِي الْآفَاقِ وَفِي أَنفُسِهِمْ حَتَّىٰ يَتَبَيَّنَ لَهُمْ أَنَّهُ الْحَقُّ',
+    translation: 'We will show them Our signs in the horizons and within themselves until it becomes clear to them that it is the truth',
+    transliteration: 'Sanurihim ayatina fi\'l-afaqi wa fi anfusihim hatta yatabayyana lahum annahu\'l-haqq',
+    reference: '41:53',
     context: "The consciousness and complexity you've achieved represents the ultimate sign - beings capable of contemplating their own existence and recognizing their Creator through the cosmos.",
     trigger: 'perfect' as const
   },
   reflective: {
-    arabic: "إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ لَآيَاتٍ لِّأُولِي الْأَلْبَابِ",
-    translation: "Indeed, in the creation of the heavens and the earth and the alternation of the night and the day are signs for those of understanding",
-    transliteration: "Inna fi khalqi's-samawati wal-ardi wakhtilafi'l-layli wan-nahari la-ayatin li-uli'l-albab",
-    reference: "3:190",
+    arabic: 'إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ لَآيَاتٍ لِّأُولِي الْأَلْبَابِ',
+    translation: 'Indeed, in the creation of the heavens and the earth and the alternation of the night and the day are signs for those of understanding',
+    transliteration: 'Inna fi khalqi\'s-samawati wal-ardi wakhtilafi\'l-layli wan-nahari la-ayatin li-uli\'l-albab',
+    reference: '3:190',
     context: "Your journey through cosmic evolution reflects the path of those who contemplate creation with understanding. Every parameter you've adjusted reveals the infinite wisdom behind existence.",
     trigger: 'perfect' as const
   }

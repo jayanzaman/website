@@ -103,7 +103,7 @@ function PlanetarySystem({ orbitalDistance, planetMass, atmosphericPressure }: {
             top: '50%',
             transform: 'translate(-50%, -50%)',
             animation: `planet-orbit ${6 / Math.sqrt(orbitalDistance)}s linear infinite`,
-            transformOrigin: `0 0`,
+            transformOrigin: '0 0',
             boxShadow: atmosphericPressure > 0.3 ? '0 0 8px rgba(100, 150, 255, 0.5)' : 'none',
           }}
         />
@@ -123,7 +123,7 @@ function PlanetarySystem({ orbitalDistance, planetMass, atmosphericPressure }: {
               top: '50%',
               transform: 'translate(-50%, -50%)',
               animation: `planet-orbit ${6 / Math.sqrt(orbitalDistance)}s linear infinite`,
-              transformOrigin: `0 0`,
+              transformOrigin: '0 0',
             }}
           />
         )}

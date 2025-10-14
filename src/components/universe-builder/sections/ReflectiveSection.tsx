@@ -172,10 +172,10 @@ export default function ReflectiveSection({ educatorMode, cosmicTime = 0 }: { ed
   }, [awarenessLevel, interconnectedness])
 
   const philosophicalQuotes = [
-    { quote: "We are the universe remembering itself.", author: "Carl Sagan" },
-    { quote: "The cosmos is within us. We are made of star-stuff.", author: "Carl Sagan" },
-    { quote: "Consciousness is the universe becoming aware of itself.", author: "Eckhart Tolle" },
-    { quote: "We are not going into the universe, we are the universe.", author: "Alan Watts" },
+    { quote: 'We are the universe remembering itself.', author: 'Carl Sagan' },
+    { quote: 'The cosmos is within us. We are made of star-stuff.', author: 'Carl Sagan' },
+    { quote: 'Consciousness is the universe becoming aware of itself.', author: 'Eckhart Tolle' },
+    { quote: 'We are not going into the universe, we are the universe.', author: 'Alan Watts' },
   ];
 
   const currentQuote = philosophicalQuotes[Math.floor(cosmicTime / 10) % philosophicalQuotes.length];
