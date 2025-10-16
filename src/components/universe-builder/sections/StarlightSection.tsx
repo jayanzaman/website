@@ -179,16 +179,25 @@ export default function StarlightSection({ educatorMode, cosmicTime = 0 }: { edu
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <Slider
-                    value={[stellarMass]}
-                    onValueChange={(value) => setStellarMass(value[0])}
-                    max={2}
-                    min={0.1}
-                    step={0.1}
-                    className="w-full"
-                  />
+                  <div className="relative">
+                    <Slider
+                      value={[stellarMass]}
+                      onValueChange={(value) => setStellarMass(value[0])}
+                      max={2}
+                      min={0.1}
+                      step={0.1}
+                      className="w-full"
+                    />
+                    {/* Optimal range indicator - Sun-like stars */}
+                    <div className="absolute top-0 h-2 bg-green-500/30 rounded" 
+                         style={{
+                           left: `${((0.8 - 0.1) / (2 - 0.1)) * 100}%`,
+                           width: `${((1.4 - 0.8) / (2 - 0.1)) * 100}%`
+                         }}></div>
+                  </div>
                   <div className="flex justify-between text-sm text-gray-400">
                     <span>Red Dwarf</span>
+                    <span className="text-green-400 font-bold">0.8-1.4 M☉ (optimal)</span>
                     <span className="text-white font-medium">{stellarMass.toFixed(1)} M☉</span>
                     <span>Supergiant</span>
                   </div>
@@ -205,19 +214,33 @@ export default function StarlightSection({ educatorMode, cosmicTime = 0 }: { edu
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <Slider
-                    value={[metallicity]}
-                    onValueChange={(value) => setMetallicity(value[0])}
-                    max={0.1}
-                    min={0}
-                    step={0.001}
-                    className="w-full"
-                  />
+                  <div className="relative">
+                    <Slider
+                      value={[metallicity]}
+                      onValueChange={(value) => setMetallicity(value[0])}
+                      max={0.1}
+                      min={0}
+                      step={0.001}
+                      className="w-full"
+                    />
+                    {/* Optimal range indicator - Solar metallicity */}
+                    <div className="absolute top-0 h-2 bg-green-500/30 rounded" 
+                         style={{
+                           left: `${((0.01 - 0) / (0.1 - 0)) * 100}%`,
+                           width: `${((0.03 - 0.01) / (0.1 - 0)) * 100}%`
+                         }}></div>
+                  </div>
                   <div className="flex justify-between text-sm text-gray-400">
                     <span>Population III</span>
+                    <span className="text-green-400 font-bold">1-3% (optimal)</span>
                     <span className="text-white font-medium">{(metallicity * 100).toFixed(2)}%</span>
                     <span>Metal-Rich</span>
                   </div>
+                  {educatorMode && metallicity < 0.005 && (
+                    <div className="mt-3 p-2 bg-yellow-900/20 border border-yellow-500/30 rounded text-xs text-yellow-200">
+                      <strong>⚠️ JWST Update:</strong> James Webb has discovered unexpectedly metal-rich galaxies at z{'>'}10, suggesting rapid early enrichment or alternative formation pathways.
+                    </div>
+                  )}
                 </div>
               </CardContent>
             </Card>
@@ -231,16 +254,25 @@ export default function StarlightSection({ educatorMode, cosmicTime = 0 }: { edu
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <Slider
-                    value={[starFormationRate]}
-                    onValueChange={(value) => setStarFormationRate(value[0])}
-                    max={2}
-                    min={0.1}
-                    step={0.1}
-                    className="w-full"
-                  />
+                  <div className="relative">
+                    <Slider
+                      value={[starFormationRate]}
+                      onValueChange={(value) => setStarFormationRate(value[0])}
+                      max={2}
+                      min={0.1}
+                      step={0.1}
+                      className="w-full"
+                    />
+                    {/* Optimal range indicator - Moderate formation rate */}
+                    <div className="absolute top-0 h-2 bg-green-500/30 rounded" 
+                         style={{
+                           left: `${((0.8 - 0.1) / (2 - 0.1)) * 100}%`,
+                           width: `${((1.5 - 0.8) / (2 - 0.1)) * 100}%`
+                         }}></div>
+                  </div>
                   <div className="flex justify-between text-sm text-gray-400">
                     <span>Slow</span>
+                    <span className="text-green-400 font-bold">0.8-1.5 (optimal)</span>
                     <span className="text-white font-medium">{starFormationRate.toFixed(1)}</span>
                     <span>Rapid</span>
                   </div>
@@ -251,20 +283,70 @@ export default function StarlightSection({ educatorMode, cosmicTime = 0 }: { edu
         </div>
 
         {educatorMode && (
-          <Card className="bg-blue-900/20 border-blue-500/30 mt-8">
-            <CardHeader>
-              <CardTitle className="text-blue-300">Educational Notes</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-2 text-sm text-blue-200">
-                <p>• Population III stars were the first stars, made only of hydrogen and helium</p>
-                <p>• Nuclear fusion in stellar cores creates elements up to iron</p>
-                <p>• Supernova explosions create elements heavier than iron</p>
-                <p>• Stellar winds and supernovae seed space with heavy elements</p>
-                <p>• Second-generation stars can form rocky planets due to heavy elements</p>
-              </div>
-            </CardContent>
-          </Card>
+          <div className="space-y-4 mt-8">
+            <Card className="bg-blue-900/20 border-blue-500/30">
+              <CardHeader>
+                <CardTitle className="text-blue-300">Educational Notes</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2 text-sm text-blue-200">
+                  <p>• Population III stars were the first stars, made only of hydrogen and helium</p>
+                  <p>• Nuclear fusion in stellar cores creates elements up to iron</p>
+                  <p>• Supernova explosions create elements heavier than iron</p>
+                  <p>• Stellar winds and supernovae seed space with heavy elements</p>
+                  <p>• Second-generation stars can form rocky planets due to heavy elements</p>
+                  <div className="mt-4 p-3 bg-yellow-900/30 border border-yellow-500/40 rounded">
+                    <p className="text-yellow-200 font-semibold mb-2">🔭 Recent JWST Discoveries (2022-2024):</p>
+                    <p className="text-xs text-yellow-100">James Webb has observed galaxies at redshift z{'>'}10 (400-600 Myr after Big Bang) with unexpectedly high metallicities. Some show carbon, oxygen, and nitrogen abundances suggesting very rapid early star formation and enrichment - challenging our timeline of Population III star formation.</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-red-900/20 border-red-500/30">
+              <CardHeader>
+                <CardTitle className="text-red-300">⚠️ The Stellar Nucleosynthesis Puzzles</CardTitle>
+                <CardDescription className="text-red-200">
+                  Critical gaps in our understanding of how elements formed
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3 text-sm text-red-200">
+                  <div className="bg-red-900/30 p-3 rounded border border-red-500/40">
+                    <p className="font-semibold text-red-100 mb-2">The Triple-Alpha Process Fine-Tuning:</p>
+                    <p className="text-xs">Carbon-12 formation requires <strong>three helium-4 nuclei</strong> to collide simultaneously - astronomically unlikely. Fred Hoyle predicted a precise energy resonance (7.65 MeV) that makes this possible. Without this exact resonance, no carbon → no organic chemistry → no life. <strong>The resonance exists, but we don't know why.</strong></p>
+                  </div>
+                  
+                  <div className="bg-red-900/30 p-3 rounded border border-red-500/40">
+                    <p className="font-semibold text-red-100 mb-2">The Lithium Problem:</p>
+                    <p className="text-xs">Big Bang nucleosynthesis predicts 3-4x more lithium-7 than observed in old stars. Either: (1) unknown physics destroyed lithium, (2) stellar models are wrong, or (3) Big Bang models are incomplete. <strong>After 25+ years, this remains unsolved.</strong></p>
+                  </div>
+
+                  <div className="bg-red-900/30 p-3 rounded border border-red-500/40">
+                    <p className="font-semibold text-red-100 mb-2">The r-Process Mystery:</p>
+                    <p className="text-xs">Half of elements heavier than iron require rapid neutron capture (r-process) in extreme environments. We thought this happened in core-collapse supernovae, but models can't reproduce observed abundances. <strong>Neutron star mergers help, but the full picture remains unclear.</strong></p>
+                  </div>
+
+                  <div className="bg-red-900/30 p-3 rounded border border-red-500/40">
+                    <p className="font-semibold text-red-100 mb-2">Population III Star Problem:</p>
+                    <p className="text-xs">We've never directly observed a Population III star. Theory predicts they were 100-1000x more massive than the Sun, but JWST finds metal-rich galaxies too early. Either: (1) Pop III stars were different than predicted, (2) enrichment happened faster than possible, or (3) alternative formation pathways exist.</p>
+                  </div>
+
+                  <div className="bg-red-900/30 p-3 rounded border border-red-500/40">
+                    <p className="font-semibold text-red-100 mb-2">The Oxygen Isotope Anomaly:</p>
+                    <p className="text-xs">Meteorites show oxygen isotope ratios that don't match stellar nucleosynthesis models. The Sun's composition differs from the local interstellar medium in ways we can't explain. <strong>Our stellar evolution models may be fundamentally incomplete.</strong></p>
+                  </div>
+
+                  <div className="mt-4 p-3 bg-yellow-900/30 border border-yellow-500/40 rounded">
+                    <p className="text-yellow-200 font-semibold mb-2">🌟 The Uncomfortable Truth:</p>
+                    <p className="text-xs text-yellow-100">
+                      We can simulate stellar interiors and predict element production, but <strong>we've never seen it happen</strong>. Stellar lifetimes are millions to billions of years - far longer than human observation. Our models work for some elements but fail for others. The recent JWST discoveries suggest our timeline of cosmic chemical evolution may be fundamentally wrong.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         )}
       </div>
     </div>

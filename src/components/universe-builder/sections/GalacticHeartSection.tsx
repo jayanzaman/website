@@ -406,16 +406,25 @@ export default function GalacticHeartSection({
                     {blackHoleMass.toExponential(1)} M☉
                   </span>
                 </div>
-                <Slider
-                  value={[Math.log10(blackHoleMass)]}
-                  onValueChange={(value) => setBlackHoleMass(Math.pow(10, value[0]))}
-                  min={5} // 10^5 solar masses
-                  max={10} // 10^10 solar masses
-                  step={0.1}
-                  className="w-full"
-                />
+                <div className="relative">
+                  <Slider
+                    value={[Math.log10(blackHoleMass)]}
+                    onValueChange={(value) => setBlackHoleMass(Math.pow(10, value[0]))}
+                    min={5} // 10^5 solar masses
+                    max={10} // 10^10 solar masses
+                    step={0.1}
+                    className="w-full"
+                  />
+                  {/* Optimal range indicator - around Milky Way mass */}
+                  <div className="absolute top-0 h-2 bg-green-500/30 rounded" 
+                       style={{
+                         left: `${((6.0 - 5) / (10 - 5)) * 100}%`,
+                         width: `${((7.5 - 6.0) / (10 - 5)) * 100}%`
+                       }}></div>
+                </div>
                 <div className="flex justify-between text-xs text-gray-500">
                   <span>10⁵ M☉</span>
+                  <span className="text-green-400 font-bold">10⁶-10⁷·⁵ M☉ (optimal)</span>
                   <span className="text-yellow-400">Milky Way: 4.3×10⁶ M☉</span>
                   <span>10¹⁰ M☉</span>
                 </div>
@@ -527,17 +536,65 @@ export default function GalacticHeartSection({
           )}
 
           {educatorMode && (
-            <Card className="bg-green-500/10 border-green-500/20 text-white">
-              <CardContent className="p-4">
-                <h4 className="text-sm font-semibold mb-2 text-green-300">Teaching Notes</h4>
-                <ul className="text-xs space-y-1 text-gray-300">
-                  <li>• Black holes regulate star formation through feedback</li>
-                  <li>• Optimal mass range enables long-term habitability</li>
-                  <li>• Early quasar activity dispersed heavy elements</li>
-                  <li>• Our galaxy's dormant phase allows life to emerge</li>
-                </ul>
-              </CardContent>
-            </Card>
+            <div className="space-y-4">
+              <Card className="bg-blue-900/20 border-blue-500/30 text-white">
+                <CardHeader>
+                  <CardTitle className="text-blue-300">Educational Notes</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2 text-sm text-blue-200">
+                    <p>• Black holes regulate star formation through feedback</p>
+                    <p>• Optimal mass range enables long-term habitability</p>
+                    <p>• Early quasar activity dispersed heavy elements</p>
+                    <p>• Our galaxy's dormant phase allows life to emerge</p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-red-900/20 border-red-500/30">
+                <CardHeader>
+                  <CardTitle className="text-red-300">⚠️ The Supermassive Black Hole Enigmas</CardTitle>
+                  <CardDescription className="text-red-200">
+                    Fundamental mysteries about galactic evolution and black hole formation
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3 text-sm text-red-200">
+                    <div className="bg-red-900/30 p-3 rounded border border-red-500/40">
+                      <p className="font-semibold text-red-100 mb-2">The Seed Black Hole Problem:</p>
+                      <p className="text-xs">Supermassive black holes with billions of solar masses exist when the universe was only 700 million years old. Even growing at the maximum theoretical rate (Eddington limit), <strong>seed black holes would need to start at ~10,000 solar masses</strong> - but we don't know how such massive seeds formed so early.</p>
+                    </div>
+                    
+                    <div className="bg-red-900/30 p-3 rounded border border-red-500/40">
+                      <p className="font-semibold text-red-100 mb-2">The M-Sigma Relation Mystery:</p>
+                      <p className="text-xs">Black hole mass correlates precisely with galaxy bulge velocity dispersion across 5 orders of magnitude. This suggests <strong>black holes and galaxies co-evolved</strong>, but the physical mechanism is unknown. How does a tiny black hole "know" about the much larger galaxy around it?</p>
+                    </div>
+
+                    <div className="bg-red-900/30 p-3 rounded border border-red-500/40">
+                      <p className="font-semibold text-red-100 mb-2">The Feedback Mechanism Puzzle:</p>
+                      <p className="text-xs">Active galactic nuclei somehow regulate star formation across entire galaxies, but the physics is unclear. <strong>Jets, winds, and radiation</strong> from black holes must precisely balance inflow and outflow to maintain the M-sigma relation. Too much feedback = dead galaxy; too little = runaway star formation.</p>
+                    </div>
+
+                    <div className="bg-red-900/30 p-3 rounded border border-red-500/40">
+                      <p className="font-semibold text-red-100 mb-2">The Dormancy Problem:</p>
+                      <p className="text-xs">Most supermassive black holes today are nearly dormant (including Sagittarius A*), accreting at ~0.01% of the Eddington rate. <strong>We don't understand why they "turned off"</strong> or what maintains this low-activity state that enables habitability around galaxies.</p>
+                    </div>
+
+                    <div className="bg-red-900/30 p-3 rounded border border-red-500/40">
+                      <p className="font-semibold text-red-100 mb-2">The Intermediate Mass Gap:</p>
+                      <p className="text-xs">We observe stellar-mass black holes (3-100 M☉) and supermassive ones (10⁶-10¹⁰ M☉), but very few intermediate-mass black holes. This <strong>"mass gap" suggests unknown physics</strong> prevents or destroys black holes in the 100-100,000 solar mass range.</p>
+                    </div>
+
+                    <div className="mt-4 p-3 bg-yellow-900/30 border border-yellow-500/40 rounded">
+                      <p className="text-yellow-200 font-semibold mb-2">🕳️ The Deeper Mystery:</p>
+                      <p className="text-xs text-yellow-100">
+                        Black holes are the most extreme objects in the universe, yet they seem to <strong>create order rather than chaos</strong>. They regulate star formation, distribute heavy elements, and maintain galactic structure. The fact that our galaxy's black hole is in a "Goldilocks zone" of mass and activity may be necessary for life, but we don't understand why this balance exists or how it's maintained.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           )}
         </div>
       </div>

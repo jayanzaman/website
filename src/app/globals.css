@@ -51,10 +51,10 @@ body::before {
   z-index: -1;
   background-color: var(--background);
   background-image: 
-    radial-gradient(circle at center, rgba(26, 26, 26, 0.02) 0%, transparent 100%),
-    linear-gradient(to bottom right, rgba(255, 95, 0, 0.01), rgba(26, 26, 26, 0.02)),
-    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f0f0f0' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  background-size: 100% 100%, 100% 100%, 60px 60px;
+    radial-gradient(circle at center, rgba(26, 26, 26, 0.01) 0%, transparent 100%),
+    linear-gradient(to bottom right, rgba(255, 95, 0, 0.005), rgba(26, 26, 26, 0.01)),
+    url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f0f0f0' fill-opacity='0.08'%3E%3Cpath d='M40 40v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zm0-20V18h-2v2h-2v2h2v2h2v-2h2v-2h-2zM20 40v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM20 20v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-size: 100% 100%, 100% 100%, 80px 80px;
   background-position: center, center, center;
   background-repeat: no-repeat, no-repeat, repeat;
   background-attachment: fixed;
@@ -63,7 +63,13 @@ body::before {
 .content-wrapper {
   position: relative;
   z-index: 1;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+@media (prefers-color-scheme: dark) {
+  .content-wrapper {
+    background: rgba(10, 10, 10, 0.95);
+  }
 }
 
 .synpulse-gradient {

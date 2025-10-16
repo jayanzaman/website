@@ -28,8 +28,8 @@ export default function ArticlePage() {
     return (
       <div className="content-wrapper">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <h1 className="text-4xl font-bold text-text-primary mb-4">Article Not Found</h1>
-          <p className="text-text-secondary mb-8">Sorry, we couldn't find the article you're looking for.</p>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Article Not Found</h1>
+          <p className="text-gray-600 dark:text-gray-300 mb-8">Sorry, we couldn't find the article you're looking for.</p>
           <Link href="/latest-thinking" className="text-primary hover:text-primary-dark flex items-center gap-2">
             <FaArrowLeft /> Back to Articles
           </Link>
@@ -48,7 +48,7 @@ export default function ArticlePage() {
       // Handle headings
       if (trimmedParagraph.startsWith('## ')) {
         return (
-          <h2 key={index} className="text-3xl font-bold text-text-primary mt-10 mb-6">
+          <h2 key={index} className="text-3xl font-bold text-gray-900 dark:text-white mt-10 mb-6">
             {trimmedParagraph.replace('## ', '')}
           </h2>
         );
@@ -56,7 +56,7 @@ export default function ArticlePage() {
       
       if (trimmedParagraph.startsWith('### ')) {
         return (
-          <h3 key={index} className="text-2xl font-semibold text-text-primary mt-8 mb-4">
+          <h3 key={index} className="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">
             {trimmedParagraph.replace('### ', '')}
           </h3>
         );
@@ -69,10 +69,10 @@ export default function ArticlePage() {
         
         return (
           <div key={index} className="mb-6">
-            {listIntro && <p className="mb-3 text-base md:text-lg text-text-secondary">{listIntro}</p>}
+            {listIntro && <p className="mb-3 text-base md:text-lg text-gray-700 dark:text-gray-300">{listIntro}</p>}
             <ul className="list-disc pl-6 space-y-2">
               {items.map((item, i) => (
-                <li key={i} className="text-base md:text-lg text-text-secondary">{item.trim()}</li>
+                <li key={i} className="text-base md:text-lg text-gray-700 dark:text-gray-300">{item.trim()}</li>
               ))}
             </ul>
           </div>
@@ -85,7 +85,7 @@ export default function ArticlePage() {
         return (
           <ol key={index} className="list-decimal pl-6 mb-6 space-y-2">
             {items.map((item, i) => (
-              <li key={i} className="text-base md:text-lg text-text-secondary">
+              <li key={i} className="text-base md:text-lg text-gray-700 dark:text-gray-300">
                 {item.replace(/^\d+\.\s/, '').trim()}
               </li>
             ))}
@@ -95,7 +95,7 @@ export default function ArticlePage() {
 
       // Regular paragraphs
       return (
-        <p key={index} className="mb-6 text-base md:text-lg text-text-secondary">
+        <p key={index} className="mb-6 text-base md:text-lg text-gray-700 dark:text-gray-300">
           {trimmedParagraph}
         </p>
       );
@@ -110,8 +110,8 @@ export default function ArticlePage() {
             <Link href="/latest-thinking" className="text-primary hover:text-primary-dark flex items-center gap-2 mb-4">
               <FaArrowLeft /> Back to Articles
             </Link>
-            <h1 className="text-4xl font-bold text-text-primary mb-4">{article.title}</h1>
-            <div className="flex items-center gap-6 text-text-secondary">
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">{article.title}</h1>
+            <div className="flex items-center gap-6 text-gray-600 dark:text-gray-400">
               <div className="flex items-center gap-2">
                 <FaClock /> {article.readTime}
               </div>
@@ -139,8 +139,8 @@ export default function ArticlePage() {
           </div>
         </article>
 
-        <div className="mt-12 pt-8 border-t border-[#E5E5E5]">
-          <h2 className="text-2xl font-bold text-text-primary mb-4">Share this article</h2>
+        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Share this article</h2>
           <div className="flex space-x-4">
             <button 
               onClick={() => {
@@ -148,7 +148,7 @@ export default function ArticlePage() {
                 const text = encodeURIComponent(`Check out this article: ${article.title}`);
                 window.open(`https://x.com/intent/tweet?url=${url}&text=${text}`, '_blank') ;
               }}
-              className="px-4 py-2 border border-[#E5E5E5] rounded-md text-text-secondary hover:text-primary hover:border-primary"
+              className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-600 dark:hover:border-blue-400 bg-white dark:bg-gray-800"
             >
               X
             </button>
@@ -158,7 +158,7 @@ export default function ArticlePage() {
                 const title = encodeURIComponent(article.title);
                 window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank') ;
               }}
-              className="px-4 py-2 border border-[#E5E5E5] rounded-md text-text-secondary hover:text-primary hover:border-primary"
+              className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-600 dark:hover:border-blue-400 bg-white dark:bg-gray-800"
             >
               LinkedIn
             </button>
@@ -168,7 +168,7 @@ export default function ArticlePage() {
                 const body = encodeURIComponent(`I thought you might find this interesting: ${article.title}\n\n${window.location.href}`);
                 window.open(`mailto:?subject=${subject}&body=${body}`, '_blank');
               }}
-              className="px-4 py-2 border border-[#E5E5E5] rounded-md text-text-secondary hover:text-primary hover:border-primary"
+              className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-600 dark:hover:border-blue-400 bg-white dark:bg-gray-800"
             >
               Email
             </button>

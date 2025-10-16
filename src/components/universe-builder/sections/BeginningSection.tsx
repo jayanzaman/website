@@ -83,12 +83,10 @@ function EnergyField({ entropy, expansionRate, densityFluctuations }: {
 
 export default function BeginningSection({ 
   educatorMode, 
-  cosmicTime = 0, 
-  contemplativeMode = false 
+  cosmicTime = 0
 }: { 
   educatorMode: boolean; 
   cosmicTime?: number;
-  contemplativeMode?: boolean;
 }) {
   const [entropy, setEntropy] = useState(1)
   const [expansionRate, setExpansionRate] = useState(0.5)
@@ -128,12 +126,6 @@ export default function BeginningSection({
     // Graduated outcomes based on total score
     if (totalScore > 0.85) {
       outcome = '✨ Perfect conditions - complex structures flourish!'
-      // Trigger Quranic reflection for perfect conditions
-      if (contemplativeMode) {
-        window.dispatchEvent(new CustomEvent('perfectCondition', {
-          detail: { section: 'beginning' }
-        }))
-      }
     } else if (totalScore > 0.65) {
       outcome = '🌟 Excellent - life and galaxies likely to emerge'
     } else if (totalScore > 0.45) {
@@ -244,16 +236,25 @@ export default function BeginningSection({
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                <Slider
-                  value={[entropy]}
-                  onValueChange={(value) => setEntropy(value[0])}
-                  max={10}
-                  min={0.1}
-                  step={0.1}
-                  className="w-full"
-                />
+                <div className="relative">
+                  <Slider
+                    value={[entropy]}
+                    onValueChange={(value) => setEntropy(value[0])}
+                    max={10}
+                    min={0.1}
+                    step={0.1}
+                    className="w-full"
+                  />
+                  {/* Optimal range indicator */}
+                  <div className="absolute top-0 h-2 bg-green-500/30 rounded" 
+                       style={{
+                         left: `${((0.5 - 0.1) / (10 - 0.1)) * 100}%`,
+                         width: `${((1.5 - 0.5) / (10 - 0.1)) * 100}%`
+                       }}></div>
+                </div>
                 <div className="flex justify-between text-sm text-gray-400">
                   <span>Perfect Order</span>
+                  <span className="text-green-400 font-bold">0.5-1.5 (optimal)</span>
                   <span className="text-white font-medium">{entropy.toFixed(1)}</span>
                   <span>Maximum Chaos</span>
                 </div>
@@ -281,16 +282,25 @@ export default function BeginningSection({
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                <Slider
-                  value={[expansionRate]}
-                  onValueChange={(value) => setExpansionRate(value[0])}
-                  max={2}
-                  min={0.1}
-                  step={0.1}
-                  className="w-full"
-                />
+                <div className="relative">
+                  <Slider
+                    value={[expansionRate]}
+                    onValueChange={(value) => setExpansionRate(value[0])}
+                    max={2}
+                    min={0.1}
+                    step={0.1}
+                    className="w-full"
+                  />
+                  {/* Optimal range indicator */}
+                  <div className="absolute top-0 h-2 bg-green-500/30 rounded" 
+                       style={{
+                         left: `${((0.5 - 0.1) / (2 - 0.1)) * 100}%`,
+                         width: `${((0.9 - 0.5) / (2 - 0.1)) * 100}%`
+                       }}></div>
+                </div>
                 <div className="flex justify-between text-sm text-gray-400">
                   <span>Too Slow</span>
+                  <span className="text-green-400 font-bold">0.5-0.9 (optimal)</span>
                   <span className="text-white font-medium">{expansionRate.toFixed(1)}</span>
                   <span>Too Fast</span>
                 </div>
@@ -308,16 +318,25 @@ export default function BeginningSection({
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                <Slider
-                  value={[densityFluctuations]}
-                  onValueChange={(value) => setDensityFluctuations(value[0])}
-                  max={1}
-                  min={0}
-                  step={0.01}
-                  className="w-full"
-                />
+                <div className="relative">
+                  <Slider
+                    value={[densityFluctuations]}
+                    onValueChange={(value) => setDensityFluctuations(value[0])}
+                    max={1}
+                    min={0}
+                    step={0.01}
+                    className="w-full"
+                  />
+                  {/* Optimal range indicator */}
+                  <div className="absolute top-0 h-2 bg-green-500/30 rounded" 
+                       style={{
+                         left: `${((0.1 - 0) / (1 - 0)) * 100}%`,
+                         width: `${((0.3 - 0.1) / (1 - 0)) * 100}%`
+                       }}></div>
+                </div>
                 <div className="flex justify-between text-sm text-gray-400">
                   <span>Perfectly Smooth</span>
+                  <span className="text-green-400 font-bold">10-30% (optimal)</span>
                   <span className="text-white font-medium">{(densityFluctuations * 100).toFixed(1)}%</span>
                   <span>Highly Chaotic</span>
                 </div>
@@ -326,19 +345,63 @@ export default function BeginningSection({
           </Card>
 
           {educatorMode && (
-            <Card className="bg-blue-900/20 border-blue-500/30">
-              <CardHeader>
-                <CardTitle className="text-blue-300">Educational Notes</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-2 text-sm text-blue-200">
-                  <p>• The universe began in an extraordinarily low-entropy state</p>
-                  <p>• Cosmic inflation explains the universe's flatness and uniformity</p>
-                  <p>• Quantum fluctuations during inflation created the seeds for galaxies</p>
-                  <p>• The anthropic principle suggests our universe is fine-tuned for complexity</p>
-                </div>
-              </CardContent>
-            </Card>
+            <div className="space-y-4">
+              <Card className="bg-blue-900/20 border-blue-500/30">
+                <CardHeader>
+                  <CardTitle className="text-blue-300">Educational Notes</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2 text-sm text-blue-200">
+                    <p>• The universe began in an extraordinarily low-entropy state</p>
+                    <p>• Cosmic inflation explains the universe's flatness and uniformity</p>
+                    <p>• Quantum fluctuations during inflation created the seeds for galaxies</p>
+                    <p>• The anthropic principle suggests our universe is fine-tuned for complexity</p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-red-900/20 border-red-500/30">
+                <CardHeader>
+                  <CardTitle className="text-red-300">⚠️ The Improbability Cascade</CardTitle>
+                  <CardDescription className="text-red-200">
+                    Each step requires increasingly precise conditions
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3 text-sm text-red-200">
+                    <div className="bg-red-900/30 p-3 rounded border border-red-500/40">
+                      <p className="font-semibold text-red-100 mb-2">Penrose's Low-Entropy Calculation:</p>
+                      <p className="text-xs">Probability of our universe's initial low-entropy state: <strong>1 in 10^(10^123)</strong> - a number so vast that if every atom in the observable universe were a digit, you couldn't write it down.</p>
+                    </div>
+                    
+                    <div className="bg-red-900/30 p-3 rounded border border-red-500/40">
+                      <p className="font-semibold text-red-100 mb-2">Cosmological Constant Problem:</p>
+                      <p className="text-xs">Dark energy density appears fine-tuned to ~120 decimal places. Off by even 1 part in 10^120 and either: (1) universe collapses immediately, or (2) expands so fast no structures form.</p>
+                    </div>
+
+                    <div className="bg-red-900/30 p-3 rounded border border-red-500/40">
+                      <p className="font-semibold text-red-100 mb-2">Flatness Problem:</p>
+                      <p className="text-xs">Universe's density must equal critical density to ~1 part in 10^60 at Planck time. Slight deviation = immediate collapse or runaway expansion.</p>
+                    </div>
+
+                    <div className="bg-red-900/30 p-3 rounded border border-red-500/40">
+                      <p className="font-semibold text-red-100 mb-2">Horizon Problem:</p>
+                      <p className="text-xs">Cosmic microwave background uniform to 1 part in 100,000 across regions that should never have been in causal contact. Requires precise initial conditions or inflation mechanism.</p>
+                    </div>
+
+                    <div className="mt-4 p-3 bg-yellow-900/30 border border-yellow-500/40 rounded">
+                      <p className="text-yellow-200 font-semibold mb-2">🤔 The Deeper Question:</p>
+                      <p className="text-xs text-yellow-100">
+                        Unlike abiogenesis (which we can study in labs), we cannot experiment with universe creation. 
+                        Are these "fine-tuned" values: (1) necessary consequences of unknown physics, 
+                        (2) selection effects from infinite multiverse, (3) evidence of design, or 
+                        (4) simply the only universe we can observe? The question remains open.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           )}
         </div>
       </div>

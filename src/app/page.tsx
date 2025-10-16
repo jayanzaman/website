@@ -128,17 +128,17 @@ export default function Home() {
                 <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center text-2xl">
                   🌌
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">The Universe Builder</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">Our Finetuned Universe</h3>
                 <p className="text-gray-300 mb-6">
-                  Play God with the cosmos and discover the razor's edge on which our existence is balanced. 
-                  Adjust fundamental constants and witness the consequences in real-time.
+                  Explore the improbable path from the Big Bang to consciousness. Discover the precise conditions and 
+                  extraordinary coincidences that make complexity possible in our cosmos.
                 </p>
               </div>
               <Link 
                 href="/universe-builder"
                 className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-lg hover:from-orange-700 hover:to-red-700 transition-all transform hover:scale-105"
               >
-                Launch Universe Builder <FaArrowRight className="ml-2" />
+                Explore Our Finetuned Universe <FaArrowRight className="ml-2" />
               </Link>
             </div>
           </div>

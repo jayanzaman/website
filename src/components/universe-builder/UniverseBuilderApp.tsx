@@ -3,9 +3,8 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-import { RotateCcw, Shuffle, ArrowLeft, BookOpen } from 'lucide-react'
+import { RotateCcw, Shuffle, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
-import { QuranicReflectionModal, quranicReflections, type QuranicReflection } from './QuranicReflections'
 
 // Section Components
 import BeginningSection from './sections/BeginningSection'
@@ -20,9 +19,6 @@ export default function UniverseBuilderApp() {
   const [currentSection, setCurrentSection] = useState(0)
   const [educatorMode, setEducatorMode] = useState(false)
   const [cosmicTime, setCosmicTime] = useState(0)
-  const [contemplativeMode, setContemplativeMode] = useState(false)
-  const [currentReflection, setCurrentReflection] = useState<QuranicReflection | null>(null)
-  const [isReflectionOpen, setIsReflectionOpen] = useState(false)
 
   const sections = [
     { id: 0, title: 'The Beginning', subtitle: 'Low Entropy Start', component: BeginningSection },
@@ -57,23 +53,6 @@ export default function UniverseBuilderApp() {
     window.dispatchEvent(new CustomEvent('randomizeUniverse'))
   }
 
-  const triggerReflection = (sectionKey: keyof typeof quranicReflections) => {
-    if (contemplativeMode && quranicReflections[sectionKey]) {
-      setCurrentReflection(quranicReflections[sectionKey])
-      setIsReflectionOpen(true)
-    }
-  }
-
-  // Listen for perfect condition events from sections
-  useEffect(() => {
-    const handlePerfectCondition = (event: CustomEvent) => {
-      const { section } = event.detail
-      triggerReflection(section)
-    }
-
-    window.addEventListener('perfectCondition', handlePerfectCondition as EventListener)
-    return () => window.removeEventListener('perfectCondition', handlePerfectCondition as EventListener)
-  }, [contemplativeMode])
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -107,9 +86,9 @@ export default function UniverseBuilderApp() {
             </Link>
             <div>
               <h1 className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
-                The Universe Builder
+                Our Finetuned Universe
               </h1>
-              <p className="text-xs text-gray-400">From Nothing to Now</p>
+              <p className="text-xs text-gray-400">Exploring the Improbable Path to Complexity</p>
             </div>
           </div>
           
@@ -121,19 +100,6 @@ export default function UniverseBuilderApp() {
               className="bg-white/5 border-white/20 hover:bg-white/10 text-white"
             >
               {educatorMode ? 'Student Mode' : 'Educator Mode'}
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setContemplativeMode(!contemplativeMode)}
-              className={`border-white/20 hover:bg-white/10 text-white ${
-                contemplativeMode 
-                  ? 'bg-amber-500/20 border-amber-400/50' 
-                  : 'bg-white/5'
-              }`}
-            >
-              <BookOpen className="h-4 w-4 mr-1" />
-              {contemplativeMode ? 'Contemplative' : 'Reflection'}
             </Button>
             <Button
               variant="outline"
@@ -199,19 +165,12 @@ export default function UniverseBuilderApp() {
           >
             <CurrentSectionComponent 
               educatorMode={educatorMode} 
-              cosmicTime={cosmicTime} 
-              contemplativeMode={contemplativeMode}
+              cosmicTime={cosmicTime}
             />
           </motion.div>
         </AnimatePresence>
       </main>
 
-      {/* Quranic Reflection Modal */}
-      <QuranicReflectionModal
-        reflection={currentReflection}
-        isOpen={isReflectionOpen}
-        onClose={() => setIsReflectionOpen(false)}
-      />
 
       {/* Navigation Controls */}
       <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 flex items-center gap-4">

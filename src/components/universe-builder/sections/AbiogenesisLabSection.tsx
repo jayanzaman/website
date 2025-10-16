@@ -483,12 +483,10 @@ function StageInfo({ stage }: { stage: number }) {
 
 export default function AbiogenesisLabSection({ 
   educatorMode, 
-  cosmicTime = 0,
-  contemplativeMode 
+  cosmicTime = 0
 }: { 
   educatorMode: boolean; 
   cosmicTime?: number;
-  contemplativeMode?: boolean;
 }) {
   // Simulation state
   const [simulationState, setSimulationState] = useState<SimulationState>({
@@ -728,17 +726,6 @@ export default function AbiogenesisLabSection({
     return () => clearInterval(interval);
   }, [isRunning, controls]);
 
-  // Trigger contemplative reflection when optimal conditions are met
-  useEffect(() => {
-    if (contemplativeMode && 
-        simulationState.stage >= 4 && 
-        simulationState.perBaseAccuracy > 0.97 && 
-        simulationState.lifePotential > 80) {
-      window.dispatchEvent(new CustomEvent('perfectCondition', { 
-        detail: { section: 'abiogenesis' } 
-      }));
-    }
-  }, [simulationState, contemplativeMode]);
 
   const resetSimulation = () => {
     setSimulationState({

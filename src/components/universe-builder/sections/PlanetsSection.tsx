@@ -277,16 +277,25 @@ export default function PlanetsSection({ educatorMode, cosmicTime = 0 }: { educa
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <Slider
-                    value={[orbitalDistance]}
-                    onValueChange={(value) => setOrbitalDistance(value[0])}
-                    max={3}
-                    min={0.1}
-                    step={0.1}
-                    className="w-full"
-                  />
+                  <div className="relative">
+                    <Slider
+                      value={[orbitalDistance]}
+                      onValueChange={(value) => setOrbitalDistance(value[0])}
+                      max={3}
+                      min={0.1}
+                      step={0.1}
+                      className="w-full"
+                    />
+                    {/* Optimal range indicator - Goldilocks zone */}
+                    <div className="absolute top-0 h-2 bg-green-500/30 rounded" 
+                         style={{
+                           left: `${((0.8 - 0.1) / (3 - 0.1)) * 100}%`,
+                           width: `${((1.5 - 0.8) / (3 - 0.1)) * 100}%`
+                         }}></div>
+                  </div>
                   <div className="flex justify-between text-sm text-gray-400">
                     <span>Mercury-like</span>
+                    <span className="text-green-400 font-bold">0.8-1.5 AU (habitable)</span>
                     <span className="text-white font-medium">{orbitalDistance.toFixed(1)} AU</span>
                     <span>Mars-like</span>
                   </div>
@@ -303,16 +312,25 @@ export default function PlanetsSection({ educatorMode, cosmicTime = 0 }: { educa
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <Slider
-                    value={[planetMass]}
-                    onValueChange={(value) => setPlanetMass(value[0])}
-                    max={3}
-                    min={0.1}
-                    step={0.1}
-                    className="w-full"
-                  />
+                  <div className="relative">
+                    <Slider
+                      value={[planetMass]}
+                      onValueChange={(value) => setPlanetMass(value[0])}
+                      max={3}
+                      min={0.1}
+                      step={0.1}
+                      className="w-full"
+                    />
+                    {/* Optimal range indicator - Earth-like mass */}
+                    <div className="absolute top-0 h-2 bg-green-500/30 rounded" 
+                         style={{
+                           left: `${((0.5 - 0.1) / (3 - 0.1)) * 100}%`,
+                           width: `${((2.0 - 0.5) / (3 - 0.1)) * 100}%`
+                         }}></div>
+                  </div>
                   <div className="flex justify-between text-sm text-gray-400">
                     <span>Mars-size</span>
+                    <span className="text-green-400 font-bold">0.5-2.0 M⊕ (optimal)</span>
                     <span className="text-white font-medium">{planetMass.toFixed(1)} M⊕</span>
                     <span>Super-Earth</span>
                   </div>
@@ -329,16 +347,25 @@ export default function PlanetsSection({ educatorMode, cosmicTime = 0 }: { educa
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <Slider
-                    value={[atmosphericPressure]}
-                    onValueChange={(value) => setAtmosphericPressure(value[0])}
-                    max={2}
-                    min={0}
-                    step={0.1}
-                    className="w-full"
-                  />
+                  <div className="relative">
+                    <Slider
+                      value={[atmosphericPressure]}
+                      onValueChange={(value) => setAtmosphericPressure(value[0])}
+                      max={2}
+                      min={0}
+                      step={0.1}
+                      className="w-full"
+                    />
+                    {/* Optimal range indicator - Earth-like atmosphere */}
+                    <div className="absolute top-0 h-2 bg-green-500/30 rounded" 
+                         style={{
+                           left: `${((0.5 - 0) / (2 - 0)) * 100}%`,
+                           width: `${((1.5 - 0.5) / (2 - 0)) * 100}%`
+                         }}></div>
+                  </div>
                   <div className="flex justify-between text-sm text-gray-400">
                     <span>No Atmosphere</span>
+                    <span className="text-green-400 font-bold">0.5-1.5 atm (optimal)</span>
                     <span className="text-white font-medium">{atmosphericPressure.toFixed(1)} atm</span>
                     <span>Dense</span>
                   </div>
@@ -349,20 +376,66 @@ export default function PlanetsSection({ educatorMode, cosmicTime = 0 }: { educa
         </div>
 
         {educatorMode && (
-          <Card className="bg-blue-900/20 border-blue-500/30 mt-8">
-            <CardHeader>
-              <CardTitle className="text-blue-300">Educational Notes</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-2 text-sm text-blue-200">
-                <p>• The habitable zone is where liquid water can exist on a planet's surface</p>
-                <p>• Planet mass affects gravity and ability to retain atmosphere</p>
-                <p>• Atmospheric pressure determines whether water stays liquid</p>
-                <p>• Temperature follows inverse square law with distance from star</p>
-                <p>• Earth sits in the "Goldilocks zone" - not too hot, not too cold</p>
-              </div>
-            </CardContent>
-          </Card>
+          <div className="space-y-4 mt-8">
+            <Card className="bg-blue-900/20 border-blue-500/30">
+              <CardHeader>
+                <CardTitle className="text-blue-300">Educational Notes</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2 text-sm text-blue-200">
+                  <p>• The habitable zone is where liquid water can exist on a planet's surface</p>
+                  <p>• Planet mass affects gravity and ability to retain atmosphere</p>
+                  <p>• Atmospheric pressure determines whether water stays liquid</p>
+                  <p>• Temperature follows inverse square law with distance from star</p>
+                  <p>• Earth sits in the "Goldilocks zone" - not too hot, not too cold</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-red-900/20 border-red-500/30">
+              <CardHeader>
+                <CardTitle className="text-red-300">⚠️ The Planetary Habitability Assumptions</CardTitle>
+                <CardDescription className="text-red-200">
+                  Major unknowns in planetary formation and habitability science
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3 text-sm text-red-200">
+                  <div className="bg-red-900/30 p-3 rounded border border-red-500/40">
+                    <p className="font-semibold text-red-100 mb-2">The Water-Centric Bias:</p>
+                    <p className="text-xs">We define habitability as "liquid water on surface" because that's what we know. But life might thrive in <strong>subsurface oceans, methane lakes, or hydrogen atmospheres</strong>. Europa, Enceladus, and Titan may be more habitable than Mars, despite being outside the "habitable zone."</p>
+                  </div>
+                  
+                  <div className="bg-red-900/30 p-3 rounded border border-red-500/40">
+                    <p className="font-semibold text-red-100 mb-2">The Rare Earth Hypothesis:</p>
+                    <p className="text-xs">Earth may require <strong>dozens of unlikely coincidences</strong>: large moon for tides and stability, Jupiter as comet shield, plate tectonics for carbon cycle, magnetic field for radiation protection, right axial tilt, stable orbit. The probability of all factors aligning may be astronomically small.</p>
+                  </div>
+
+                  <div className="bg-red-900/30 p-3 rounded border border-red-500/40">
+                    <p className="font-semibold text-red-100 mb-2">The Late Heavy Bombardment Problem:</p>
+                    <p className="text-xs">Earth was likely sterilized multiple times by massive impacts until ~3.8 billion years ago. <strong>We don't know how life survived</strong> or re-emerged. Most exoplanets may experience similar bombardment periods that prevent life from taking hold.</p>
+                  </div>
+
+                  <div className="bg-red-900/30 p-3 rounded border border-red-500/40">
+                    <p className="font-semibold text-red-100 mb-2">The Atmospheric Escape Mystery:</p>
+                    <p className="text-xs">Mars lost its atmosphere, Venus became a greenhouse hell, but Earth maintained habitability for 4 billion years. <strong>We don't fully understand why</strong>. Stellar activity, magnetic fields, and atmospheric composition interact in complex ways we're still discovering.</p>
+                  </div>
+
+                  <div className="bg-red-900/30 p-3 rounded border border-red-500/40">
+                    <p className="font-semibold text-red-100 mb-2">The Tidal Locking Dilemma:</p>
+                    <p className="text-xs">Most exoplanets around red dwarf stars (75% of all stars) are tidally locked - one side always faces the star. This creates <strong>extreme temperature gradients and atmospheric dynamics</strong> we don't understand. Can life exist on such worlds?</p>
+                  </div>
+
+                  <div className="mt-4 p-3 bg-yellow-900/30 border border-yellow-500/40 rounded">
+                    <p className="text-yellow-200 font-semibold mb-2">🌍 The Sobering Reality:</p>
+                    <p className="text-xs text-yellow-100">
+                      Despite finding 5,000+ exoplanets, <strong>we haven't confirmed life on any of them</strong>. Our models predict thousands of "habitable" worlds, but habitability ≠ inhabited. Earth may be far more special than we assume, or life may be far more adaptable than we imagine. We simply don't know which assumption is correct.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         )}
       </div>
     </div>

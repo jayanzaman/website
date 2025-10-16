@@ -228,16 +228,25 @@ export default function ComplexitySection({ educatorMode, cosmicTime = 0 }: { ed
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <Slider
-                    value={[selectionPressure]}
-                    onValueChange={(value) => setSelectionPressure(value[0])}
-                    max={1}
-                    min={0}
-                    step={0.01}
-                    className="w-full"
-                  />
+                  <div className="relative">
+                    <Slider
+                      value={[selectionPressure]}
+                      onValueChange={(value) => setSelectionPressure(value[0])}
+                      max={1}
+                      min={0}
+                      step={0.01}
+                      className="w-full"
+                    />
+                    {/* Optimal range indicator - moderate selection */}
+                    <div className="absolute top-0 h-2 bg-green-500/30 rounded" 
+                         style={{
+                           left: `${((0.3 - 0) / (1 - 0)) * 100}%`,
+                           width: `${((0.7 - 0.3) / (1 - 0)) * 100}%`
+                         }}></div>
+                  </div>
                   <div className="flex justify-between text-sm text-gray-400">
                     <span>Weak</span>
+                    <span className="text-green-400 font-bold">30-70% (optimal)</span>
                     <span className="text-white font-medium">{(selectionPressure * 100).toFixed(0)}%</span>
                     <span>Intense</span>
                   </div>
@@ -254,16 +263,25 @@ export default function ComplexitySection({ educatorMode, cosmicTime = 0 }: { ed
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <Slider
-                    value={[mutationRate]}
-                    onValueChange={(value) => setMutationRate(value[0])}
-                    max={1}
-                    min={0}
-                    step={0.01}
-                    className="w-full"
-                  />
+                  <div className="relative">
+                    <Slider
+                      value={[mutationRate]}
+                      onValueChange={(value) => setMutationRate(value[0])}
+                      max={1}
+                      min={0}
+                      step={0.01}
+                      className="w-full"
+                    />
+                    {/* Optimal range indicator - moderate mutation */}
+                    <div className="absolute top-0 h-2 bg-green-500/30 rounded" 
+                         style={{
+                           left: `${((0.1 - 0) / (1 - 0)) * 100}%`,
+                           width: `${((0.4 - 0.1) / (1 - 0)) * 100}%`
+                         }}></div>
+                  </div>
                   <div className="flex justify-between text-sm text-gray-400">
                     <span>Conservative</span>
+                    <span className="text-green-400 font-bold">10-40% (optimal)</span>
                     <span className="text-white font-medium">{(mutationRate * 100).toFixed(0)}%</span>
                     <span>Chaotic</span>
                   </div>
@@ -280,16 +298,25 @@ export default function ComplexitySection({ educatorMode, cosmicTime = 0 }: { ed
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <Slider
-                    value={[environmentalStability]}
-                    onValueChange={(value) => setEnvironmentalStability(value[0])}
-                    max={1}
-                    min={0}
-                    step={0.01}
-                    className="w-full"
-                  />
+                  <div className="relative">
+                    <Slider
+                      value={[environmentalStability]}
+                      onValueChange={(value) => setEnvironmentalStability(value[0])}
+                      max={1}
+                      min={0}
+                      step={0.01}
+                      className="w-full"
+                    />
+                    {/* Optimal range indicator - moderate stability */}
+                    <div className="absolute top-0 h-2 bg-green-500/30 rounded" 
+                         style={{
+                           left: `${((0.6 - 0) / (1 - 0)) * 100}%`,
+                           width: `${((0.9 - 0.6) / (1 - 0)) * 100}%`
+                         }}></div>
+                  </div>
                   <div className="flex justify-between text-sm text-gray-400">
                     <span>Chaotic</span>
+                    <span className="text-green-400 font-bold">60-90% (optimal)</span>
                     <span className="text-white font-medium">{(environmentalStability * 100).toFixed(0)}%</span>
                     <span>Stable</span>
                   </div>
@@ -300,20 +327,66 @@ export default function ComplexitySection({ educatorMode, cosmicTime = 0 }: { ed
         </div>
 
         {educatorMode && (
-          <Card className="bg-blue-900/20 border-blue-500/30 mt-8">
-            <CardHeader>
-              <CardTitle className="text-blue-300">Educational Notes</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-2 text-sm text-blue-200">
-                <p>• Evolution requires both selection pressure and genetic variation</p>
-                <p>• Too much pressure causes extinction, too little causes stagnation</p>
-                <p>• Moderate mutation rates provide optimal innovation without chaos</p>
-                <p>• Environmental stability allows complex adaptations to develop</p>
-                <p>• Intelligence emerges from the interplay of all these factors</p>
-              </div>
-            </CardContent>
-          </Card>
+          <div className="space-y-4 mt-8">
+            <Card className="bg-blue-900/20 border-blue-500/30">
+              <CardHeader>
+                <CardTitle className="text-blue-300">Educational Notes</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2 text-sm text-blue-200">
+                  <p>• Evolution requires both selection pressure and genetic variation</p>
+                  <p>• Too much pressure causes extinction, too little causes stagnation</p>
+                  <p>• Moderate mutation rates provide optimal innovation without chaos</p>
+                  <p>• Environmental stability allows complex adaptations to develop</p>
+                  <p>• Intelligence emerges from the interplay of all these factors</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-red-900/20 border-red-500/30">
+              <CardHeader>
+                <CardTitle className="text-red-300">⚠️ The Consciousness and Complexity Paradoxes</CardTitle>
+                <CardDescription className="text-red-200">
+                  Deep mysteries about evolution, intelligence, and the nature of consciousness
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3 text-sm text-red-200">
+                  <div className="bg-red-900/30 p-3 rounded border border-red-500/40">
+                    <p className="font-semibold text-red-100 mb-2">The Hard Problem of Consciousness:</p>
+                    <p className="text-xs">We have no scientific explanation for <strong>why subjective experience exists</strong>. Neural correlates don't explain qualia - why does red look red? Why is there "something it's like" to be conscious? This may be the deepest unsolved problem in science.</p>
+                  </div>
+                  
+                  <div className="bg-red-900/30 p-3 rounded border border-red-500/40">
+                    <p className="font-semibold text-red-100 mb-2">The Fermi Paradox:</p>
+                    <p className="text-xs">If intelligence is a natural outcome of evolution, <strong>where is everybody?</strong> The universe should be teeming with civilizations, yet we see none. Either: (1) intelligence is incredibly rare, (2) civilizations self-destruct, (3) they're hiding, or (4) we're fundamentally wrong about something.</p>
+                  </div>
+
+                  <div className="bg-red-900/30 p-3 rounded border border-red-500/40">
+                    <p className="font-semibold text-red-100 mb-2">The Cambrian Explosion Problem:</p>
+                    <p className="text-xs">Complex life appeared "suddenly" ~540 million years ago after 3 billion years of simple cells. <strong>We don't understand what triggered this explosion</strong> of complexity. Was it oxygen, predation, genetic innovations, or something else entirely?</p>
+                  </div>
+
+                  <div className="bg-red-900/30 p-3 rounded border border-red-500/40">
+                    <p className="font-semibold text-red-100 mb-2">The Intelligence Convergence Question:</p>
+                    <p className="text-xs">Intelligence evolved independently multiple times (humans, octopi, dolphins, corvids), suggesting it's advantageous. But <strong>why did only humans develop technology and language?</strong> What specific conditions or mutations made our intelligence qualitatively different?</p>
+                  </div>
+
+                  <div className="bg-red-900/30 p-3 rounded border border-red-500/40">
+                    <p className="font-semibold text-red-100 mb-2">The Entropy-Complexity Paradox:</p>
+                    <p className="text-xs">The Second Law of Thermodynamics says entropy always increases, yet we see increasing complexity and organization. <strong>How does evolution create order from chaos?</strong> The answer involves energy gradients and dissipative structures, but the full picture remains unclear.</p>
+                  </div>
+
+                  <div className="mt-4 p-3 bg-yellow-900/30 border border-yellow-500/40 rounded">
+                    <p className="text-yellow-200 font-semibold mb-2">🧠 The Ultimate Mystery:</p>
+                    <p className="text-xs text-yellow-100">
+                      Consciousness may be the universe's way of understanding itself, but <strong>we don't know if it's inevitable or miraculous</strong>. Are we the result of 13.8 billion years of cosmic evolution naturally producing observers, or are we an impossibly unlikely accident? The answer shapes how we view our place in the cosmos.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         )}
       </div>
     </div>
