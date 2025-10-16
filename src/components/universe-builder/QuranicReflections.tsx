@@ -141,12 +141,28 @@ export const quranicReflections = {
     context: "The stars you've ignited echo the divine creation of celestial furnaces that forge the elements of life. Each star is a lamp illuminating the cosmic darkness.",
     trigger: 'perfect' as const
   },
+  galacticHeart: {
+    arabic: 'وَكُلُّ شَيْءٍ عِندَهُ بِمِقْدَارٍ',
+    translation: 'And everything with Him is in due proportion',
+    transliteration: 'Wa kullu shay\'in \'indahu bi-miqdaar',
+    reference: '13:8',
+    context: "The perfect balance you've achieved between creation and destruction in your galaxy's heart reflects the divine principle of measured proportion. Even the most violent cosmic forces serve the greater purpose of nurturing life.",
+    trigger: 'perfect' as const
+  },
   planets: {
     arabic: 'وَالْأَرْضَ مَدَدْنَاهَا وَأَلْقَيْنَا فِيهَا رَوَاسِيَ وَأَنبَتْنَا فِيهَا مِن كُلِّ شَيْءٍ مَّوْزُونٍ',
     translation: 'And the earth - We have spread it and cast therein firmly set mountains and made to grow therein all kinds of things in good proportion',
     transliteration: 'Wal-arda madadnaha wa alqayna fiha rawasiya wa anbatnaa fiha min kulli shay\'in mawzun',
     reference: '15:19',
     context: "The habitable world you've crafted reflects Allah's wisdom in creating Earth in perfect balance - not too hot, not too cold, but precisely calibrated for life to flourish.",
+    trigger: 'perfect' as const
+  },
+  abiogenesis: {
+    arabic: 'وَجَعَلْنَا مِنَ الْمَاءِ كُلَّ شَيْءٍ حَيٍّ أَفَلَا يُؤْمِنُونَ',
+    translation: 'And We made from water every living thing; then will they not believe?',
+    transliteration: 'Wa ja\'alna min al-ma\'i kulla shay\'in hayy; afala yu\'minun',
+    reference: '21:30',
+    context: "The chemical pathways you've witnessed from simple molecules to self-replicating systems reflect the divine wisdom in creating life from the most basic elements. Every step from amino acids to genetic codes bears witness to purposeful design.",
     trigger: 'perfect' as const
   },
   life: {

@@ -11,10 +11,10 @@ import { QuranicReflectionModal, quranicReflections, type QuranicReflection } fr
 import BeginningSection from './sections/BeginningSection'
 import MatterSection from './sections/MatterSection'
 import StarlightSection from './sections/StarlightSection'
+import GalacticHeartSection from './sections/GalacticHeartSection'
 import PlanetsSection from './sections/PlanetsSection'
-import LifeSection from './sections/LifeSection'
+import AbiogenesisLabSection from './sections/AbiogenesisLabSection'
 import ComplexitySection from './sections/ComplexitySection'
-import ReflectiveSection from './sections/ReflectiveSection'
 
 export default function UniverseBuilderApp() {
   const [currentSection, setCurrentSection] = useState(0)
@@ -28,10 +28,10 @@ export default function UniverseBuilderApp() {
     { id: 0, title: 'The Beginning', subtitle: 'Low Entropy Start', component: BeginningSection },
     { id: 1, title: 'Formation of Matter', subtitle: 'Quarks to Atoms', component: MatterSection },
     { id: 2, title: 'Starlight & Heavy Elements', subtitle: 'First Stars', component: StarlightSection },
-    { id: 3, title: 'Planets & Habitability', subtitle: 'Goldilocks Zone', component: PlanetsSection },
-    { id: 4, title: 'Emergence of Life', subtitle: 'From Molecules to Cells', component: LifeSection },
-    { id: 5, title: 'Complexity & Consciousness', subtitle: 'The Arrow of Time', component: ComplexitySection },
-    { id: 6, title: 'The Reflective Cosmos', subtitle: 'We Are the Universe', component: ReflectiveSection }
+    { id: 3, title: 'The Galactic Heart', subtitle: 'Black Holes & Galaxy Evolution', component: GalacticHeartSection },
+    { id: 4, title: 'Planets & Habitability', subtitle: 'Goldilocks Zone', component: PlanetsSection },
+    { id: 5, title: 'Abiogenesis Lab', subtitle: 'From Chemistry to Codes', component: AbiogenesisLabSection },
+    { id: 6, title: 'Complexity & Consciousness', subtitle: 'The Arrow of Time', component: ComplexitySection }
   ]
 
   const CurrentSectionComponent = sections[currentSection].component
