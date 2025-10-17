@@ -83,12 +83,10 @@ function ParticleField({ strongForce }: { strongForce: number }) {
 
 export default function MatterSection({ 
   educatorMode, 
-  cosmicTime = 0, 
-  contemplativeMode = false 
+  cosmicTime = 0
 }: { 
   educatorMode: boolean; 
   cosmicTime?: number;
-  contemplativeMode?: boolean;
 }) {
   const [strongForce, setStrongForce] = useState(1)
   const [outcome, setOutcome] = useState('')
@@ -110,12 +108,6 @@ export default function MatterSection({
     
     if (forceScore > 0.8) {
       setOutcome('✨ Perfect - stable nuclei and efficient fusion!')
-      // Trigger Quranic reflection for perfect conditions
-      if (contemplativeMode) {
-        window.dispatchEvent(new CustomEvent('perfectCondition', {
-          detail: { section: 'matter' }
-        }))
-      }
     } else if (forceScore > 0.5) {
       setOutcome('🌟 Good - atoms form, some instability present')
     } else if (forceScore > 0.2) {

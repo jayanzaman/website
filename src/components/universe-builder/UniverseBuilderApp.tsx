@@ -61,7 +61,7 @@ export default function UniverseBuilderApp() {
     }
     window.addEventListener('keydown', handleKeyPress)
     return () => window.removeEventListener('keydown', handleKeyPress)
-  }, [currentSection])
+  }, [currentSection, handleNext, handlePrevious])
 
   // Cosmic time evolution
   useEffect(() => {

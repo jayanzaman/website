@@ -437,7 +437,7 @@ export default function GalacticHeartSection({
                   {(['dormant', 'active', 'quasar'] as const).map((level) => (
                     <Button
                       key={level}
-                      variant={activityLevel === level ? "default" : "outline"}
+                      variant={activityLevel === level ? 'default' : 'outline'}
                       size="sm"
                       onClick={() => setActivityLevel(level)}
                       className={`flex-1 ${
