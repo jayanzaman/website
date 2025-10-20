@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { RotateCcw, Shuffle, ArrowLeft } from 'lucide-react'
@@ -32,17 +32,17 @@ export default function UniverseBuilderApp() {
 
   const CurrentSectionComponent = sections[currentSection].component
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     if (currentSection < sections.length - 1) {
       setCurrentSection(currentSection + 1)
     }
-  }
+  }, [currentSection, sections.length])
 
-  const handlePrevious = () => {
+  const handlePrevious = useCallback(() => {
     if (currentSection > 0) {
       setCurrentSection(currentSection - 1)
     }
-  }
+  }, [currentSection])
 
   const handleReset = () => {
     setCurrentSection(0)
