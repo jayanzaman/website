@@ -135,7 +135,9 @@ export default function Home() {
                 </p>
               </div>
               <Link 
-                href="/universe-builder"
+                href="https://www.finetuneduniverse.net/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-lg hover:from-orange-700 hover:to-red-700 transition-all transform hover:scale-105"
               >
                 Explore Our Finetuned Universe <FaArrowRight className="ml-2" />
