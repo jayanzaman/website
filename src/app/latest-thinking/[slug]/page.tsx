@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 
 // Import articles data from a separate file
 import { articles } from '../articles';
+import ReinsurancePricingOvershoot from '@/components/latest-thinking/ReinsurancePricingOvershoot';
 
 export default function ArticlePage() {
   const params = useParams();
@@ -122,12 +123,13 @@ export default function ArticlePage() {
           </div>
 
           {!imageError && article.imageUrl && (
-            <div className="relative w-full h-[400px] mb-8">
+            <div className="relative w-full mb-8">
               <Image
                 src={article.imageUrl}
                 alt={article.title}
-                fill
-                style={{ objectFit: 'cover' }}
+                width={1200}
+                height={800}
+                style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
                 className="rounded-lg"
                 onError={() => setImageError(true)}
               />
@@ -135,7 +137,11 @@ export default function ArticlePage() {
           )}
 
           <div className="article-content">
-            {renderContent()}
+            {slug === 'reinsurance-pricing-overshoot' ? (
+              <ReinsurancePricingOvershoot />
+            ) : (
+              renderContent()
+            )}
           </div>
         </article>
 

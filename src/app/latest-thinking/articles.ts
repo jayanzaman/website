@@ -236,5 +236,16 @@ export const articles: Articles = {
     author: 'Jayan Zaman',
     date: 'October 14, 2025',
     readTime: '12 min read'
+  },
+  'reinsurance-pricing-overshoot': {
+    title: 'The Great Overshoot',
+    category: 'Insurance',
+    content: `
+      Why Reinsurance Pricing detached from reality—and how to fix it. The global insurance market is under pressure, but the story is more complex than the headlines suggest. Recent pricing has overshot actual risk requirements, exposing the fragility of manual pricing models.
+    `,
+    imageUrl: '/images/reinsurance_pricing.png',
+    author: 'Jayan Zaman',
+    date: 'November 26, 2025',
+    readTime: '8 min read'
   }
 };
