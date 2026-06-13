@@ -1,3 +1,4 @@
+// src/components/AnimatedProcess.tsx
 'use client';
 
 import { useState } from 'react';
@@ -29,70 +30,95 @@ export default function AnimatedProcess({ steps }: AnimatedProcessProps) {
   };
   
   return (
-    <div className="border border-[#E5E5E5] rounded-lg p-5 my-8 bg-white">
-      <div className="flex justify-between items-center mb-6">
-        {steps.map((step, index) => (
-          <div 
-            key={index}
-            className={`flex flex-col items-center cursor-pointer ${index <= currentStep ? 'text-[#FF5F00]' : 'text-gray-400'}`}
-            onClick={() => setCurrentStep(index)}
-          >
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center mb-2 ${
-              index <= currentStep ? 'bg-[#1A1A1A] text-white' : 'bg-gray-200 text-gray-500'
-            }`}>
-              {index + 1}
-            </div>
-            <div className="text-xs text-center max-w-[150px] hover:whitespace-normal hover:overflow-visible hover:z-10" title={step.title}>
-              {step.title}
-            </div>
-          </div>
-        ))}
+    <div className="border border-[var(--paper-edge)] rounded-[2px] p-6 my-8 bg-[var(--paper)] transition-colors">
+      
+      {/* Step Indicator Header */}
+      <div className="flex flex-wrap md:flex-nowrap justify-between items-center gap-4 mb-8 border-b border-[var(--rule)] pb-6">
+        {steps.map((step, index) => {
+          const isActive = index === currentStep;
+          const isCompleted = index < currentStep;
+          
+          return (
+            <button 
+              key={index}
+              className='flex-grow md:flex-grow-0 flex items-center gap-3 text-left focus:outline-none group'
+              onClick={() => setCurrentStep(index)}
+            >
+              {/* Step number block (Flat design, 2px border-radius max) */}
+              <div className={`w-8 h-8 rounded-[2px] border flex items-center justify-center font-mono text-xs transition-all ${
+                isActive 
+                  ? 'bg-[var(--vermilion)] border-[var(--vermilion)] text-[var(--paper)]'
+                  : isCompleted
+                    ? 'border-[var(--sumi)] text-[var(--sumi)]'
+                    : 'border-[var(--paper-edge)] text-[var(--sumi-3)]'
+              }`}>
+                {index + 1}
+              </div>
+
+              {/* Step Title */}
+              <div className="space-y-0.5">
+                <div className={`label-mono text-[10px] tracking-[0.06em] ${
+                  isActive ? 'text-[var(--vermilion)]' : 'text-[var(--sumi-3)]'
+                }`}>
+                  STEP 0{index + 1}
+                </div>
+                <div className={`font-serif text-[14px] leading-tight transition-colors group-hover:text-[var(--vermilion)] ${
+                  isActive ? 'text-[var(--sumi)] font-medium' : 'text-[var(--sumi-2)]'
+                }`}>
+                  {step.title.split(' (')[0]}
+                </div>
+              </div>
+            </button>
+          );
+        })}
       </div>
       
-      <div className="bg-white rounded-lg p-6 shadow-sm min-h-[200px] border border-[#E5E5E5]">
+      {/* Step Content Card */}
+      <div className="bg-[var(--paper-deep)] rounded-[2px] p-6 md:p-8 border border-[var(--paper-edge)] min-h-[220px] flex flex-col justify-between">
         <motion.div
           key={currentStep}
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -20 }}
-          transition={{ duration: 0.3 }}
-          className="h-full"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.25 }}
+          className="space-y-4"
         >
-          <h3 className="text-xl font-semibold mb-3 text-[#1A1A1A]">{steps[currentStep].title}</h3>
-          <p className="text-[#4A4A4A]">{steps[currentStep].description}</p>
-          {steps[currentStep].icon && (
-            <div className="flex justify-center mt-6">
-              <div className="text-4xl">{steps[currentStep].icon}</div>
-            </div>
-          )}
+          <div className="flex justify-between items-start gap-4">
+            <h3 className="text-xl font-serif text-[var(--sumi)] font-light">
+              {steps[currentStep].title}
+            </h3>
+            {steps[currentStep].icon && (
+              <span className="text-2xl filter grayscale opacity-65 select-none" aria-hidden="true">
+                {steps[currentStep].icon}
+              </span>
+            )}
+          </div>
+          <p className="font-serif text-[16px] leading-[1.65] text-[var(--sumi-2)] max-w-3xl">
+            {steps[currentStep].description}
+          </p>
         </motion.div>
       </div>
       
-      <div className="flex justify-between mt-6">
+      {/* Stepper Navigation */}
+      <div className="flex justify-between items-center mt-6">
         <button 
           onClick={prevStep} 
           disabled={currentStep === 0}
-          className={`px-4 py-2 rounded-md text-sm ${
-            currentStep === 0 
-              ? 'bg-gray-200 text-gray-500 cursor-not-allowed' 
-              : 'bg-[#1A1A1A] text-white hover:bg-[#FF5F00]'
-          }`}
+          className="btn-ghost text-xs px-4 py-2 disabled:opacity-30 disabled:cursor-not-allowed"
         >
-          Previous
+          &larr; PREVIOUS
         </button>
-        <div className="text-sm text-[#4A4A4A] flex items-center">
+        
+        <div className="label-mono text-[11px] text-[var(--sumi-3)] select-none">
           Step {currentStep + 1} of {steps.length}
         </div>
+        
         <button 
           onClick={nextStep} 
           disabled={currentStep === steps.length - 1}
-          className={`px-4 py-2 rounded-md text-sm ${
-            currentStep === steps.length - 1 
-              ? 'bg-gray-200 text-gray-500 cursor-not-allowed' 
-              : 'bg-[#1A1A1A] text-white hover:bg-[#FF5F00]'
-          }`}
+          className="btn-seal text-xs px-4 py-2 disabled:opacity-30 disabled:cursor-not-allowed"
         >
-          Next
+          NEXT &rarr;
         </button>
       </div>
     </div>
