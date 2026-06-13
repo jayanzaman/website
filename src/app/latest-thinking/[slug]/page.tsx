@@ -1,3 +1,4 @@
+// src/app/latest-thinking/[slug]/page.tsx
 'use client';
 
 import { useParams, useRouter } from 'next/navigation';
@@ -27,19 +28,19 @@ export default function ArticlePage() {
 
   if (!article) {
     return (
-      <div className="content-wrapper">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Article Not Found</h1>
-          <p className="text-gray-600 dark:text-gray-300 mb-8">Sorry, we couldn't find the article you're looking for.</p>
-          <Link href="/latest-thinking" className="text-primary hover:text-primary-dark flex items-center gap-2">
-            <FaArrowLeft /> Back to Articles
+      <div className="min-h-screen transition-colors">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 text-center space-y-6">
+          <h1 className="heading-1 font-serif text-[var(--sumi)]">Article Not Found</h1>
+          <p className="font-serif text-[17px] text-[var(--sumi-2)]">Sorry, we couldn't find the article you're looking for.</p>
+          <Link href="/latest-thinking" className="inline-link font-serif italic text-base mx-auto">
+            &larr; Back to Articles
           </Link>
         </div>
       </div>
     );
   }
 
-  // Custom rendering function for article content
+  // Custom rendering function for article content following design system rules
   const renderContent = () => {
     const paragraphs = article.content.split('\n\n');
     
@@ -49,7 +50,7 @@ export default function ArticlePage() {
       // Handle headings
       if (trimmedParagraph.startsWith('## ')) {
         return (
-          <h2 key={index} className="text-3xl font-bold text-gray-900 dark:text-white mt-10 mb-6">
+          <h2 key={index} className="heading-2 text-[var(--sumi)] mt-12 mb-6 font-light">
             {trimmedParagraph.replace('## ', '')}
           </h2>
         );
@@ -57,23 +58,29 @@ export default function ArticlePage() {
       
       if (trimmedParagraph.startsWith('### ')) {
         return (
-          <h3 key={index} className="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">
+          <h3 key={index} className="text-xl font-serif text-[var(--sumi)] mt-8 mb-4 font-normal">
             {trimmedParagraph.replace('### ', '')}
           </h3>
         );
       }
       
-      // Handle lists
-      if (trimmedParagraph.includes('\n- ')) {
-        const listIntro = trimmedParagraph.split('\n- ')[0].trim();
-        const items = trimmedParagraph.split('\n- ').slice(1);
+      // Handle lists (bullets with either '*' or '-')
+      if (trimmedParagraph.includes('\n- ') || trimmedParagraph.includes('\n* ')) {
+        const isHyphen = trimmedParagraph.includes('\n- ');
+        const separator = isHyphen ? '\n- ' : '\n* ';
+        const parts = trimmedParagraph.split(separator);
+        const listIntro = parts[0].trim();
+        const items = parts.slice(1);
         
         return (
-          <div key={index} className="mb-6">
-            {listIntro && <p className="mb-3 text-base md:text-lg text-gray-700 dark:text-gray-300">{listIntro}</p>}
-            <ul className="list-disc pl-6 space-y-2">
+          <div key={index} className="mb-6 space-y-3">
+            {listIntro && <p className="font-serif text-[17px] leading-[1.65] text-[var(--sumi-2)]">{listIntro}</p>}
+            <ul className="space-y-3 pl-2">
               {items.map((item, i) => (
-                <li key={i} className="text-base md:text-lg text-gray-700 dark:text-gray-300">{item.trim()}</li>
+                <li key={i} className="font-serif text-[17px] leading-[1.65] text-[var(--sumi)] flex items-start">
+                  <span className="text-[var(--vermilion)] mr-3 select-none mt-1.5 text-xs">•</span>
+                  <span>{item.trim()}</span>
+                </li>
               ))}
             </ul>
           </div>
@@ -84,9 +91,9 @@ export default function ArticlePage() {
       if (trimmedParagraph.match(/^\d+\./m)) {
         const items = trimmedParagraph.split('\n').filter(item => /^\d+\./.test(item.trim()));
         return (
-          <ol key={index} className="list-decimal pl-6 mb-6 space-y-2">
+          <ol key={index} className="list-decimal pl-6 mb-6 space-y-3">
             {items.map((item, i) => (
-              <li key={i} className="text-base md:text-lg text-gray-700 dark:text-gray-300">
+              <li key={i} className="font-serif text-[17px] leading-[1.65] text-[var(--sumi)] pl-2">
                 {item.replace(/^\d+\.\s/, '').trim()}
               </li>
             ))}
@@ -94,9 +101,20 @@ export default function ArticlePage() {
         );
       }
 
+      // Handle blockquotes / Pullquotes (using signature italic style)
+      if (trimmedParagraph.startsWith('> ')) {
+        return (
+          <blockquote key={index} className="border-l-2 border-[var(--vermilion)] pl-6 py-2 my-8">
+            <p className="pullquote-text">
+              {trimmedParagraph.replace('> ', '')}
+            </p>
+          </blockquote>
+        );
+      }
+
       // Regular paragraphs
       return (
-        <p key={index} className="mb-6 text-base md:text-lg text-gray-700 dark:text-gray-300">
+        <p key={index} className="font-serif text-[17px] leading-[1.65] text-[var(--sumi)] mb-6">
           {trimmedParagraph}
         </p>
       );
@@ -104,67 +122,79 @@ export default function ArticlePage() {
   };
 
   return (
-    <div className="content-wrapper">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <article className="prose dark:prose-invert max-w-none">
-          <div className="mb-8">
-            <Link href="/latest-thinking" className="text-primary hover:text-primary-dark flex items-center gap-2 mb-4">
-              <FaArrowLeft /> Back to Articles
-            </Link>
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">{article.title}</h1>
-            <div className="flex items-center gap-6 text-gray-600 dark:text-gray-400">
-              <div className="flex items-center gap-2">
-                <FaClock /> {article.readTime}
-              </div>
-              <div className="flex items-center gap-2">
-                <FaTag /> {article.category}
-              </div>
+    <div className="min-h-screen transition-colors">
+      <div className="max-w-4xl mx-auto px-6 md:px-12 py-12">
+        
+        {/* Back Link */}
+        <Link 
+          href="/latest-thinking" 
+          className="inline-flex items-center text-[var(--sumi-2)] hover:text-[var(--vermilion)] mb-10 transition-colors font-mono text-[12px] tracking-wider"
+        >
+          <FaArrowLeft className="mr-2 text-[10px]" /> BACK TO ARTICLES
+        </Link>
+        
+        <article className="space-y-8">
+          {/* Article Header */}
+          <div className="space-y-4">
+            {/* Category and Read Time */}
+            <div className="label-mono text-[11px] text-[var(--sumi-3)] tracking-[0.08em] flex items-center gap-4">
+              <span className="flex items-center gap-1.5"><FaTag className="text-[10px] text-[var(--vermilion)]" /> {article.category.toUpperCase()}</span>
+              <span className="flex items-center gap-1.5"><FaClock className="text-[10px]" /> {article.readTime.toUpperCase()}</span>
+              <span>{article.date.toUpperCase()}</span>
             </div>
+            
+            {/* Title */}
+            <h1 className="text-4xl md:text-5xl font-serif font-light text-[var(--sumi)] leading-tight select-none">
+              {article.title}
+            </h1>
           </div>
 
+          {/* Featured Image (Flat border, no shadow) */}
           {!imageError && article.imageUrl && (
-            <div className="relative w-full mb-8">
+            <div className="relative w-full border border-[var(--paper-edge)] rounded-[2px] overflow-hidden bg-[var(--paper-deep)] aspect-[16/10] my-8">
               <Image
                 src={article.imageUrl}
                 alt={article.title}
-                width={1200}
-                height={800}
-                style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
-                className="rounded-lg"
+                fill
+                sizes="(max-width: 1024px) 100vw, 900px"
+                className="object-cover"
                 onError={() => setImageError(true)}
               />
             </div>
           )}
 
-          <div className="article-content">
+          {/* Body Content */}
+          <div className="article-content pt-4">
             {slug === 'reinsurance-pricing-overshoot' ? (
-              <ReinsurancePricingOvershoot />
+              <div className="space-y-8">
+                <ReinsurancePricingOvershoot />
+              </div>
             ) : (
               renderContent()
             )}
           </div>
         </article>
 
-        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Share this article</h2>
-          <div className="flex space-x-4">
+        {/* Share Section (Oxford-style flat borders) */}
+        <div className="mt-16 pt-8 border-t border-[var(--rule)]">
+          <h4 className="label-mono text-[11px] text-[var(--sumi-2)] mb-4">SHARE THIS ARTICLE</h4>
+          <div className="flex flex-wrap gap-4">
             <button 
               onClick={() => {
                 const url = encodeURIComponent(window.location.href);
                 const text = encodeURIComponent(`Check out this article: ${article.title}`);
                 window.open(`https://x.com/intent/tweet?url=${url}&text=${text}`, '_blank') ;
               }}
-              className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-600 dark:hover:border-blue-400 bg-white dark:bg-gray-800"
+              className="btn-ghost text-xs px-4 py-2"
             >
               X
             </button>
             <button 
               onClick={() => {
                 const url = encodeURIComponent(window.location.href);
-                const title = encodeURIComponent(article.title);
                 window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank') ;
               }}
-              className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-600 dark:hover:border-blue-400 bg-white dark:bg-gray-800"
+              className="btn-ghost text-xs px-4 py-2"
             >
               LinkedIn
             </button>
@@ -174,7 +204,7 @@ export default function ArticlePage() {
                 const body = encodeURIComponent(`I thought you might find this interesting: ${article.title}\n\n${window.location.href}`);
                 window.open(`mailto:?subject=${subject}&body=${body}`, '_blank');
               }}
-              className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-600 dark:hover:border-blue-400 bg-white dark:bg-gray-800"
+              className="btn-ghost text-xs px-4 py-2"
             >
               Email
             </button>

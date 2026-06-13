@@ -1,64 +1,90 @@
+// src/app/latest-thinking/page.tsx
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { FaArrowLeft } from 'react-icons/fa';
 import { articles } from './articles';
-import { useState } from 'react';
 
 export default function LatestThinkingPage() {
-  const [imageErrors, setImageErrors] = useState<{[key: string]: boolean}>({});
   const articlesArray = Object.entries(articles).map(([slug, article]) => ({
     ...article,
     slug,
-  }));
+  })).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+  // Helper to get matching tag for the article layout
+  const getArticleTag = (slug: string) => {
+    if (slug === 'reinsurance-pricing-overshoot') return 'FEATURED';
+    if (slug === 'universe-builder-interactive-experience') return 'SIMULATOR';
+    return 'PRACTICE';
+  };
 
   return (
-    <div className="min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="min-h-screen transition-colors">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
+        {/* Navigation back */}
         <Link 
           href="/" 
-          className="inline-flex items-center text-text-primary hover:text-primary mb-8"
+          className="inline-flex items-center text-[var(--sumi-2)] hover:text-[var(--vermilion)] mb-10 transition-colors font-mono text-[12px] tracking-wider"
         >
-          <FaArrowLeft className="mr-2" /> Back to Home
+          <FaArrowLeft className="mr-2 text-[10px]" /> BACK TO HOME
         </Link>
 
-        <h1 className="text-4xl font-bold text-text-primary mb-4">Latest Insights</h1>
-        <p className="text-text-secondary mb-12">
-          Explore our latest thoughts and insights on quantum computing, digital transformation, and the future
-          of financial services.
-        </p>
+        {/* Header */}
+        <div className="space-y-4 mb-16">
+          <div className="label-mono text-[13px] text-[var(--vermilion)] tracking-[0.1em]">
+            — WRITING
+          </div>
+          <h1 className="heading-1 font-serif text-[var(--sumi)] font-light">Latest Insights</h1>
+          <p className="lede-text max-w-2xl">
+            Explore our latest thoughts and insights on quantum computing, digital transformation, and the future
+            of financial services.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Articles Feed */}
+        <div className="space-y-12">
           {articlesArray.map((article) => (
-            <Link 
+            <div 
               key={article.slug} 
-              href={`/latest-thinking/${article.slug}`}
-              className="group"
+              className="border-b border-[var(--rule)] pb-10 flex flex-col md:flex-row justify-between items-start gap-6 group hover:border-[var(--sumi)] transition-colors"
             >
-              <div className="bg-white dark:bg-[#1A1A1A] rounded-lg overflow-hidden shadow-md border border-[#E5E5E5] dark:border-[#2A2A2A] hover:border-primary dark:hover:border-primary transition-colors">
-                <div className="relative h-48">
-                  <Image
-                    src={imageErrors[article.slug] ? '/images/default-article1.jpg' : article.imageUrl}
-                    alt={article.title}
-                    fill
-                    className="object-cover"
-                    onError={() => setImageErrors(prev => ({ ...prev, [article.slug]: true }))}
-                  />
+              <div className="flex-grow space-y-4 max-w-4xl">
+                {/* Metadata */}
+                <div className="label-mono text-[11px] text-[var(--sumi-3)] tracking-[0.06em]">
+                  {new Date(article.date).getDate()} · {new Date(article.date).toLocaleDateString('en-US', {month: 'short'}).toUpperCase()} · {new Date(article.date).getFullYear()} 
+                  <span className="mx-2">•</span> 
+                  {article.category.toUpperCase()} 
+                  <span className="mx-2">•</span> 
+                  {article.readTime.toUpperCase()}
                 </div>
-                <div className="p-6">
-                  <h2 className="text-xl font-semibold text-text-primary mb-2 group-hover:text-primary transition-colors">
+
+                {/* Title */}
+                <h2 className="text-3xl font-serif font-light text-[var(--sumi)] group-hover:text-[var(--vermilion)] transition-colors">
+                  <Link href={`/latest-thinking/${article.slug}`}>
                     {article.title}
-                  </h2>
-                  <p className="text-text-secondary mb-4 line-clamp-3">
-                    {article.content.split('\n\n')[0]}
-                  </p>
-                  <div className="text-sm text-text-secondary">
-                    {article.readTime} • {article.category}
-                  </div>
+                  </Link>
+                </h2>
+
+                {/* Content snippet */}
+                <p className="font-serif text-[17px] text-[var(--sumi-2)] leading-relaxed">
+                  {article.content.replace(/##.*/g, '').replace(/###.*/g, '').replace(/\*.*/g, '').trim().substring(0, 280)}...
+                </p>
+                
+                {/* Inline link */}
+                <div className="pt-2">
+                  <Link href={`/latest-thinking/${article.slug}`} className="inline-link font-serif italic text-base">
+                    Continue reading →
+                  </Link>
                 </div>
               </div>
-            </Link>
+
+              {/* Tag Stamp */}
+              <div className="flex-shrink-0 self-end md:self-center">
+                <span className="border border-[var(--paper-edge)] px-3 py-1 label-mono text-[10px] text-[var(--sumi-2)] tracking-[0.1em] rounded-[1px] bg-[var(--paper-deep)]">
+                  {getArticleTag(article.slug)}
+                </span>
+              </div>
+            </div>
           ))}
         </div>
       </div>
