@@ -284,6 +284,19 @@ export const articles: Articles = {
       ### 3. Year-End Surplus Returns
       Because the members own the pool, any funds remaining after paying out claims and administrative costs belong back to the members. Instead of translating into corporate profit, this surplus is distributed back to the policyholders or used to reduce future premiums.
 
+      ## Mutual Aid in Practice: The Case of FuneralShare
+
+      While Noor Risk applies cooperative structures to commercial and asset-based risks, the same Takaful principles are being successfully applied to lifecycle events and community mutual aid.
+
+      A prime example of this is [FuneralShare](https://funeralshare.org/home), a Shariah-compliant cost-sharing platform designed for Muslim families. In conventional life insurance, policyholders pay recurring premiums to a commercial insurer who profits if the policyholder survives. 
+
+      FuneralShare reimagines this process through pure mutual aid:
+      * **Direct Cost Sharing:** Instead of accumulating large capital reserves, when a member passes away, the actual funeral costs (up to $8,000) are split equally among all active members.
+      * **Micro-Contributions:** Because the risk is distributed across a large community, each member's contribution is typically a nominal amount (often between $1 and $8 per event).
+      * **Non-Profit and Shariah-Compliant:** The platform operates on a purely non-profit basis, eliminating interest, speculation, and corporate profit-seeking.
+
+      By comparing Noor Risk's approach to commercial protection with FuneralShare's approach to lifecycle mutual aid, we see the versatility of the cooperative model. Whether safeguarding business assets or supporting families in times of bereavement, Takaful offers a fairer, more community-centric path forward.
+
       ## A Tech-Forward Return to Mutual Roots
 
       It is worth remembering that insurance did not begin in corporate boardrooms. It was born in coffee houses and merchant guilds as mutual aid agreements. 
