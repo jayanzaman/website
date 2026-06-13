@@ -3,22 +3,25 @@
 @tailwind utilities;
 
 :root {
-  /* Colors - OKLCH */
-  --paper: oklch(96.6% 0.014 88); /* default page surface, raw cotton */
-  --paper-deep: oklch(93.4% 0.020 88); /* card & feature wells */
-  --paper-edge: oklch(88.5% 0.024 85); /* muted dividers, scrim */
-  --rule: oklch(84% 0.020 80); /* hairline 1-px lines */
+  /* ── Surfaces — green-tinted paper (hue ~155) ── */
+  --paper:        oklch(99.3% 0.004 155);  /* #fbfdfb  page background */
+  --paper-deep:   oklch(97.2% 0.010 155);  /* #f2f7f3  card & feature wells */
+  --paper-edge:   oklch(93.5% 0.014 155);  /* #e6ede7  muted dividers, scrim */
+  --rule:         oklch(86% 0.012 155);    /* #d2dad3  hairline 1px lines */
 
-  --sumi: oklch(22% 0.014 50); /* primary text, axes, footer */
-  --sumi-2: oklch(40% 0.014 50); /* secondary text, lede */
-  --sumi-3: oklch(57% 0.012 55); /* meta, captions, dates */
+  /* ── Ink — warm charcoal (hue ~50) ── */
+  --sumi:         oklch(22% 0.014 50);     /* #2b2420  primary text, axes, footer */
+  --sumi-2:       oklch(40% 0.014 50);     /* #594f47  secondary text, lede */
+  --sumi-3:       oklch(57% 0.012 55);     /* #88807a  meta, captions, dates */
 
-  --bottle: oklch(40% 0.090 165); /* footer field, dark sections */
-  --bottle-deep: oklch(30% 0.080 165); /* deepest dark surface */
-  --bottle-soft: oklch(92% 0.020 165); /* tags, pale strip backgrounds */
+  /* ── Accent — Pora Mati / terracotta (hue ~42) ── */
+  --vermilion:      oklch(54% 0.155 42);   /* #b65530  live links, state vectors, marks */
+  --vermilion-deep: oklch(44% 0.145 40);   /* #92421f  hover, pressed */
 
-  --vermilion: oklch(54% 0.155 42); /* baked earth. live links, active states, marks */
-  --vermilion-deep: oklch(44% 0.145 40); /* hover, pressed, on-paper-deep */
+  /* ── Field — Bottle Green, Bangladesh flag (hue ~165) ── */
+  --bottle:       oklch(40% 0.090 165);    /* #19614e  footer field, dark sections */
+  --bottle-deep:  oklch(30% 0.080 165);    /* #0f4839  deepest dark surface */
+  --bottle-soft:  oklch(92% 0.020 165);    /* #dcebe4  tags, pale strip backgrounds */
 
   /* Spacing Scale (8-step) */
   --space-1: 4px;
